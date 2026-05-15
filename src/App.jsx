@@ -463,7 +463,15 @@ export default function App() {
   `;
 
   return (
-    <div style={{ minHeight: "100vh", background: "#0D0D12", color: "#F0EEF8", fontFamily: "'DM Sans', sans-serif" }}>
+    <div
+      style={{
+        minHeight: "100vh",
+        background: "#0D0D12",
+        color: "#F0EEF8",
+        fontFamily: "'DM Sans', sans-serif",
+        overflowX: "hidden"
+      }}
+    >
       <style>{css}</style>
 
       {/* ── HEADER ── */}
