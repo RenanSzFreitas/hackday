@@ -182,3 +182,23 @@
     border-right-color: var(--border);
   }
 }
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  background: #0D0D12;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img,
+svg,
+div,
+main,
+section {
+  max-width: 100%;
+}
