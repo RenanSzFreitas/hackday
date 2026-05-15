@@ -421,7 +421,7 @@ export default function App() {
   const [selected, setSelected] = useState(null);
   const [user, setUser] = useState(null);
   const [loginModal, setLoginModal] = useState(false);
-  const [loginForm, setLoginForm] = useState({ name: "", email: "" });
+  const [loginForm, setLoginForm] = useState({ name: "", ra: "" });
   const [reactions, setReactions] = useState(() =>
     Object.fromEntries(EVENTS.map(e => [e.id, { ...e.reactions }]))
   );
@@ -447,7 +447,7 @@ export default function App() {
   };
 
   const handleLogin = () => {
-    if (!loginForm.name || !loginForm.email) return;
+    if (!loginForm.name || !loginForm.ra) return;
     setUser({ name: loginForm.name, avatar: loginForm.name[0].toUpperCase() });
     setLoginModal(false);
     setLoginForm({ name: "", email: "" });
@@ -797,11 +797,33 @@ export default function App() {
             <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
               <div style={{ fontSize: 36, marginBottom: 8 }}>🎓</div>
               <h2 style={{ margin: "0 0 6px", fontSize: 19, fontWeight: 700 }}>Entrar no CampusON</h2>
-              <p style={{ color: "#555", fontSize: 13, margin: 0 }}>Use seu e-mail @unisagrado.edu.br</p>
+              <p style={{ color: "#555", fontSize: 13, margin: 0 }}>Entre utilizando seu RA </p>"
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
               <input placeholder="Seu nome" value={loginForm.name} onChange={e => setLoginForm(p => ({ ...p, name: e.target.value }))} style={{ padding: "11px 14px", borderRadius: 10, border: "1px solid #2a1018", background: "#0A0A12", color: "#F1EFF8", fontSize: 14, fontFamily: "inherit", outline: "none" }} />
-              <input placeholder="email@unisagrado.edu.br" value={loginForm.email} onChange={e => setLoginForm(p => ({ ...p, email: e.target.value }))} style={{ padding: "11px 14px", borderRadius: 10, border: "1px solid #2a1018", background: "#0A0A12", color: "#F1EFF8", fontSize: 14, fontFamily: "inherit", outline: "none" }} />
+              <input
+                placeholder="RA do aluno"
+                value={loginForm.ra}
+                onChange={e => {
+                  const value = e.target.value.replace(/\D/g, "").slice(0, 10);
+
+                  setLoginForm(p => ({
+                    ...p,
+                    ra: value
+                  }));
+                }}
+                maxLength={10}
+                style={{
+                  padding: "11px 14px",
+                  borderRadius: 10,
+                  border: "1px solid #2a1018",
+                  background: "#0A0A12",
+                  color: "#F1EFF8",
+                  fontSize: 14,
+                  fontFamily: "inherit",
+                  outline: "none"
+                }}
+              />
               <button onClick={handleLogin} style={{ padding: "12px", borderRadius: 10, border: "none", background: "linear-gradient(135deg,#C8102E,#7a0010)", color: "#FFF", fontSize: 14, fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>Entrar →</button>
               <button onClick={() => setLoginModal(false)} style={{ padding: "10px", borderRadius: 10, border: "1px solid #2a1018", background: "transparent", color: "#555", fontSize: 13, cursor: "pointer", fontFamily: "inherit" }}>Cancelar</button>
             </div>
