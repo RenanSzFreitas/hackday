@@ -1,4 +1,5 @@
 import { useState } from "react";
+import logo from "./assets/logoon.png";
 
 const CAMPUS_LOCATIONS = {
   blocoAB:     { x: 195, y: 295, label: "Blocos A e B",          desc: "Biblioteca, Reitoria, Pró-Reitoria, RH, Grupo de Tecnologia" },
@@ -109,7 +110,7 @@ function Windows({ x, y, w, h, rows = 2, cols = 4, winColor = "#a8d8ea" }) {
   );
 }
 
-function Building({ x, y, w, h, color, roofColor, label, subLabel, active, rows = 2, cols = 4, roofH = 12, accent }) {
+function Building({ x, y, w, h, color, roofColor, active, rows = 2, cols = 4, roofH = 12, accent }) {
   const hoverShift = active ? -2 : 0;
   return (
     <g transform={`translate(0,${hoverShift})`} style={{ transition: "transform 0.15s" }}>
@@ -126,14 +127,17 @@ function Building({ x, y, w, h, color, roofColor, label, subLabel, active, rows 
       <Windows x={x} y={y} w={w} h={h} rows={rows} cols={cols} winColor={accent || "#a8d8ea"} />
       {/* ground line */}
       <rect x={x} y={y + h} width={w} height={2} fill="#00000033" />
-      {label && (
-        <text x={x + w / 2} y={y + h + 16} textAnchor="middle"
-          fill="#ffffffdd" fontSize="8.5" fontFamily="'DM Sans',sans-serif" fontWeight="600">{label}</text>
-      )}
-      {subLabel && (
-        <text x={x + w / 2} y={y + h + 27} textAnchor="middle"
-          fill="#ffffff77" fontSize="7" fontFamily="'DM Sans',sans-serif">{subLabel}</text>
-      )}
+    </g>
+  );
+}
+
+// Componente isolado para os textos dos prédios
+function BuildingText({ x, y, w, h, label, active }) {
+  const hoverShift = active ? -2 : 0;
+  return (
+    <g transform={`translate(0,${hoverShift})`} style={{ transition: "transform 0.15s" }}>
+      <text x={x + w / 2} y={y + h + 16} textAnchor="middle" fill="#ffffff" fontSize="9" fontFamily="'DM Sans',sans-serif" fontWeight="700" 
+            style={{ textShadow: "0px 2px 4px rgba(0,0,0,0.8), 0px 0px 3px rgba(0,0,0,1)" }}>{label}</text>
     </g>
   );
 }
@@ -178,19 +182,12 @@ function Gate({ x, y, label }) {
   );
 }
 
-function Road({ points, dashed = false }) {
-  return (
-    <polyline
-      points={points}
-      fill="none" stroke="#ffffff18" strokeWidth={dashed ? 1 : 0}
-      strokeDasharray={dashed ? "20,12" : undefined}
-    />
-  );
-}
-
 // ─── Main Map SVG ──────────────────────────────────────────────────────────
 function CampusMap({ events, selectedId, onSelect }) {
   const [hovered, setHovered] = useState(null);
+
+  // Sorting events so the selected one renders on top
+  const sortedEvents = [...events].sort((a, b) => (selectedId === a.id ? 1 : selectedId === b.id ? -1 : 0));
 
   return (
     <svg viewBox="0 0 900 520" preserveAspectRatio="xMidYMid meet"
@@ -225,6 +222,18 @@ function CampusMap({ events, selectedId, onSelect }) {
       <ellipse cx="700" cy="380" rx="50" ry="15" fill="#235a1e" />
       <ellipse cx="450" cy="460" rx="45" ry="13" fill="#235a1e" />
 
+      {/* ══════════════ TREES (Movidas para baixo no Z-index) ══════════════ */}
+      {[
+        [128,152],[160,146],[194,141],[228,137],[263,133],[298,129],[334,125],[370,122],[406,119],[442,116],[478,113],[514,110],[550,107],[586,104],[622,101],[658,98],[694,95],[730,92],
+        [98,310],[98,355],[98,400],[98,452],[98,490],
+        [800,210],[800,275],[800,340],[800,405],[800,460],
+        [195,415],[275,420],[360,425],[445,430],[530,425],[620,420],[710,415],
+      ].map(([tx, ty], i) => <Tree key={i} x={tx} y={ty} size={0.9} />)}
+      {/* extra trees near entrance */}
+      {[[130,478],[175,480],[220,478],[300,480],[380,478],[460,478],[540,480],[620,478],[700,478],[760,476]].map(([tx, ty], i) => (
+        <Tree key={`b${i}`} x={tx} y={ty} size={0.75} />
+      ))}
+
       {/* ── Parking lots ── */}
       <ParkingLot x={88} y={440} w={150} h={55} label="Estacionamento" />
       <ParkingLot x={492} y={318} w={268} h={52} label="Estacionamento" />
@@ -246,90 +255,9 @@ function CampusMap({ events, selectedId, onSelect }) {
         </g>
       ))}
 
-      {/* ── Trees ── */}
-      {[
-        [128,152],[160,146],[194,141],[228,137],[263,133],[298,129],[334,125],[370,122],[406,119],[442,116],[478,113],[514,110],[550,107],[586,104],[622,101],[658,98],[694,95],[730,92],
-        [98,310],[98,355],[98,400],[98,452],[98,490],
-        [800,210],[800,275],[800,340],[800,405],[800,460],
-        [195,415],[275,420],[360,425],[445,430],[530,425],[620,420],[710,415],
-      ].map(([tx, ty], i) => <Tree key={i} x={tx} y={ty} size={0.9} />)}
-      {/* extra trees near entrance */}
-      {[[130,478],[175,480],[220,478],[300,480],[380,478],[460,478],[540,480],[620,478],[700,478],[760,476]].map(([tx, ty], i) => (
-        <Tree key={`b${i}`} x={tx} y={ty} size={0.75} />
-      ))}
+      {/* ══════════════ BUILDINGS (Ordem Y mantida, sem textos) ══════════════ */}
 
-      {/* ══════════════ BUILDINGS ══════════════ */}
-
-      {/* Lab Engenharia */}
-      <g style={{ cursor: "pointer" }} onClick={() => {}} onMouseEnter={() => setHovered("labEng")} onMouseLeave={() => setHovered(null)}>
-        <Building x={88} y={305} w={58} h={68} color="#8B7355" roofColor="#6d5940" active={hovered === "labEng"} rows={3} cols={3} label="Lab. Eng." roofH={10} />
-      </g>
-
-      {/* Blocos A e B */}
-      <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("blocoAB")} onMouseLeave={() => setHovered(null)}>
-        <Building x={120} y={240} w={148} h={92} color="#9A7B54" roofColor="#7a6040" active={hovered === "blocoAB"} rows={3} cols={6} label="Blocos A e B" roofH={14} />
-      </g>
-
-      {/* Lanchonetes (orange-red) */}
-      <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("lanchonetes")} onMouseLeave={() => setHovered(null)}>
-        <Building x={272} y={225} w={54} h={44} color="#c45c2a" roofColor="#9e3f1a" active={hovered === "lanchonetes"} rows={2} cols={3} label="Lanchonetes" roofH={8} accent="#ffd59e" />
-      </g>
-
-      {/* Teatro Veritas (purple) */}
-      <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("teatro")} onMouseLeave={() => setHovered(null)}>
-        <Building x={270} y={272} w={72} h={58} color="#6a3d99" roofColor="#4e2878" active={hovered === "teatro"} rows={2} cols={4} label="Teatro Veritas" roofH={0} />
-        {/* Pediment / triangular roof */}
-        <polygon points="270,272 342,272 306,250" fill={hovered === "teatro" ? "#7a4dbb" : "#5e347f"} />
-        <line x1="306" y1="250" x2="306" y2="272" stroke="#ffffff22" strokeWidth="1" />
-        <text x={306} y={343} textAnchor="middle" fill="#ffffffcc" fontSize="8" fontFamily="'DM Sans',sans-serif" fontWeight="600">Teatro Veritas</text>
-      </g>
-
-      {/* Blocos C D E */}
-      <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("blocoCDE")} onMouseLeave={() => setHovered(null)}>
-        <Building x={283} y={155} w={137} h={78} color="#9A7B54" roofColor="#7a6040" active={hovered === "blocoCDE"} rows={3} cols={6} label="Blocos C, D e E" roofH={14} />
-      </g>
-
-      {/* Blocos F G */}
-      <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("blocoFG")} onMouseLeave={() => setHovered(null)}>
-        <Building x={345} y={210} w={128} h={88} color="#A0825A" roofColor="#7a6040" active={hovered === "blocoFG"} rows={3} cols={6} label="Blocos F e G" roofH={14} />
-        {/* Chapel antenna */}
-        <rect x={400} y={185} width={5} height={27} fill="#9a9080" />
-        <polygon points="397,185 408,185 402,172" fill="#b0a090" />
-        <circle cx={402} cy={171} r={2} fill="#ffcc44" />
-      </g>
-
-      {/* Bloco J */}
-      <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("blocoJ")} onMouseLeave={() => setHovered(null)}>
-        <Building x={452} y={140} w={108} h={85} color="#9A7B54" roofColor="#7a6040" active={hovered === "blocoJ"} rows={3} cols={5} label="Bloco J" roofH={14} />
-      </g>
-
-      {/* Bloco K (teal) */}
-      <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("blocoK")} onMouseLeave={() => setHovered(null)}>
-        <Building x={525} y={190} w={100} h={78} color="#2a7a8e" roofColor="#1a5a6e" active={hovered === "blocoK"} rows={3} cols={5} label="Bloco K" roofH={12} accent="#b0e8f8" />
-      </g>
-
-      {/* Prefeitura */}
-      <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("prefCampus")} onMouseLeave={() => setHovered(null)}>
-        <Building x={597} y={112} w={58} h={48} color="#884444" roofColor="#6a2a2a" active={hovered === "prefCampus"} rows={2} cols={3} roofH={9} accent="#ffb8b8" />
-        {/* Flag */}
-        <rect x={624} y={95} width={3} height={19} fill="#aaaaaa" />
-        <rect x={627} y={95} width={12} height={8} fill="#009c3b" />
-        <rect x={627} y={99} width={12} height={4} fill="#ffdf00" />
-        <text x={626} y={174} textAnchor="middle" fill="#ffffffaa" fontSize="7" fontFamily="sans-serif">Prefeitura</text>
-        <text x={626} y={183} textAnchor="middle" fill="#ffffffaa" fontSize="7" fontFamily="sans-serif">Campus</text>
-      </g>
-
-      {/* Bloco O (teal) */}
-      <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("blocoO")} onMouseLeave={() => setHovered(null)}>
-        <Building x={634} y={128} w={105} h={68} color="#2a7a8e" roofColor="#1a5a6e" active={hovered === "blocoO"} rows={3} cols={5} label="Bloco O" roofH={12} accent="#b0e8f8" />
-      </g>
-
-      {/* Bloco L (green) */}
-      <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("blocoL")} onMouseLeave={() => setHovered(null)}>
-        <Building x={695} y={85} w={95} h={60} color="#2e7a45" roofColor="#1e5a32" active={hovered === "blocoL"} rows={3} cols={5} label="Bloco L" roofH={12} accent="#a8f0b8" />
-      </g>
-
-      {/* Quadra Poliesportiva */}
+      {/* Quadra Poliesportiva (y=60) */}
       <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("quadra")} onMouseLeave={() => setHovered(null)}>
         {/* Court surface */}
         <rect x={748} y={60} width={68} height={52} fill={hovered === "quadra" ? "#c88020" : "#a86a10"} rx="3" />
@@ -340,35 +268,109 @@ function CampusMap({ events, selectedId, onSelect }) {
         <rect x={748} y={52} width={68} height={10} fill={hovered === "quadra" ? "#d89030" : "#b07820"} rx="2" />
         {/* Stands */}
         <rect x={748} y={110} width={68} height={12} fill="#8a5010" rx="1" />
-        <text x={782} y={136} textAnchor="middle" fill="#ffffffcc" fontSize="7.5" fontFamily="'DM Sans',sans-serif" fontWeight="600">Quadra</text>
-        <text x={782} y={146} textAnchor="middle" fill="#ffffffcc" fontSize="7" fontFamily="'DM Sans',sans-serif">Poliesportiva</text>
       </g>
 
-      {/* Labs e Salas de Aula */}
+      {/* Bloco L (y=85) */}
+      <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("blocoL")} onMouseLeave={() => setHovered(null)}>
+        <Building x={695} y={85} w={95} h={60} color="#2e7a45" roofColor="#1e5a32" active={hovered === "blocoL"} rows={3} cols={5} roofH={12} accent="#a8f0b8" />
+      </g>
+
+      {/* Prefeitura (y=112) */}
+      <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("prefCampus")} onMouseLeave={() => setHovered(null)}>
+        <Building x={597} y={112} w={58} h={48} color="#884444" roofColor="#6a2a2a" active={hovered === "prefCampus"} rows={2} cols={3} roofH={9} accent="#ffb8b8" />
+        {/* Flag */}
+        <rect x={624} y={95} width={3} height={19} fill="#aaaaaa" />
+        <rect x={627} y={95} width={12} height={8} fill="#009c3b" />
+        <rect x={627} y={99} width={12} height={4} fill="#ffdf00" />
+      </g>
+
+      {/* Bloco O (y=128) */}
+      <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("blocoO")} onMouseLeave={() => setHovered(null)}>
+        <Building x={634} y={128} w={105} h={68} color="#2a7a8e" roofColor="#1a5a6e" active={hovered === "blocoO"} rows={3} cols={5} roofH={12} accent="#b0e8f8" />
+      </g>
+
+      {/* Bloco J (y=140) */}
+      <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("blocoJ")} onMouseLeave={() => setHovered(null)}>
+        <Building x={452} y={140} w={108} h={85} color="#9A7B54" roofColor="#7a6040" active={hovered === "blocoJ"} rows={3} cols={5} roofH={14} />
+      </g>
+
+      {/* Blocos C D E (y=155) */}
+      <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("blocoCDE")} onMouseLeave={() => setHovered(null)}>
+        <Building x={283} y={155} w={137} h={78} color="#9A7B54" roofColor="#7a6040" active={hovered === "blocoCDE"} rows={3} cols={6} roofH={14} />
+      </g>
+
+      {/* Bloco K (y=190) */}
+      <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("blocoK")} onMouseLeave={() => setHovered(null)}>
+        <Building x={525} y={190} w={100} h={78} color="#2a7a8e" roofColor="#1a5a6e" active={hovered === "blocoK"} rows={3} cols={5} roofH={12} accent="#b0e8f8" />
+      </g>
+
+      {/* Blocos F G (y=210) */}
+      <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("blocoFG")} onMouseLeave={() => setHovered(null)}>
+        <Building x={345} y={210} w={128} h={88} color="#A0825A" roofColor="#7a6040" active={hovered === "blocoFG"} rows={3} cols={6} roofH={14} />
+        {/* Chapel antenna */}
+        <rect x={400} y={185} width={5} height={27} fill="#9a9080" />
+        <polygon points="397,185 408,185 402,172" fill="#b0a090" />
+        <circle cx={402} cy={171} r={2} fill="#ffcc44" />
+      </g>
+
+      {/* Lanchonetes (y=225) */}
+      <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("lanchonetes")} onMouseLeave={() => setHovered(null)}>
+        <Building x={272} y={225} w={54} h={44} color="#c45c2a" roofColor="#9e3f1a" active={hovered === "lanchonetes"} rows={2} cols={3} roofH={8} accent="#ffd59e" />
+      </g>
+
+      {/* Labs e Salas de Aula (y=228) */}
       <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("labSalas")} onMouseLeave={() => setHovered(null)}>
         <Building x={634} y={228} w={134} h={60} color="#6a5e50" roofColor="#4a3e33" active={hovered === "labSalas"} rows={2} cols={6} roofH={8} />
-        <text x={701} y={303} textAnchor="middle" fill="#ffffffaa" fontSize="7.5" fontFamily="sans-serif">Labs e Salas de Aula</text>
       </g>
 
-      {/* ── Hover tooltip ── */}
-      {hovered && CAMPUS_LOCATIONS[hovered] && (() => {
-        const loc = CAMPUS_LOCATIONS[hovered];
-        const tx = Math.min(Math.max(loc.x - 78, 6), 710);
-        const ty = Math.max(loc.y - 80, 8);
-        return (
-          <g>
-            <rect x={tx} y={ty} width={160} height={54} rx="6" fill="#000000dd" stroke="#ffffff22" strokeWidth="0.7" />
-            <text x={tx + 80} y={ty + 18} textAnchor="middle" fill="#fff" fontSize="9.5" fontFamily="'DM Sans',sans-serif" fontWeight="600">{loc.label}</text>
-            <text x={tx + 80} y={ty + 32} textAnchor="middle" fill="#ffffffaa" fontSize="7.5" fontFamily="sans-serif">{loc.desc.substring(0, 40)}</text>
-            {loc.desc.length > 40 && (
-              <text x={tx + 80} y={ty + 44} textAnchor="middle" fill="#ffffffaa" fontSize="7.5" fontFamily="sans-serif">{loc.desc.substring(40, 78)}{loc.desc.length > 78 ? "…" : ""}</text>
-            )}
-          </g>
-        );
-      })()}
+      {/* Blocos A e B (y=240) */}
+      <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("blocoAB")} onMouseLeave={() => setHovered(null)}>
+        <Building x={120} y={240} w={148} h={92} color="#9A7B54" roofColor="#7a6040" active={hovered === "blocoAB"} rows={3} cols={6} roofH={14} />
+      </g>
+
+      {/* Teatro Veritas (y=272) */}
+      <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("teatro")} onMouseLeave={() => setHovered(null)}>
+        <Building x={270} y={272} w={72} h={58} color="#6a3d99" roofColor="#4e2878" active={hovered === "teatro"} rows={2} cols={4} roofH={0} />
+        {/* Pediment / triangular roof */}
+        <polygon points="270,272 342,272 306,250" fill={hovered === "teatro" ? "#7a4dbb" : "#5e347f"} />
+        <line x1="306" y1="250" x2="306" y2="272" stroke="#ffffff22" strokeWidth="1" />
+      </g>
+
+      {/* Lab Engenharia (y=305) */}
+      <g style={{ cursor: "pointer" }} onClick={() => {}} onMouseEnter={() => setHovered("labEng")} onMouseLeave={() => setHovered(null)}>
+        <Building x={88} y={305} w={58} h={68} color="#8B7355" roofColor="#6d5940" active={hovered === "labEng"} rows={3} cols={3} roofH={10} />
+      </g>
+
+      {/* ══════════════ BUILDING LABELS (Sobrepõe TUDO que é arquitetura) ══════════════ */}
+      {/* Usando pointerEvents "none" para que o hover do mouse atravesse os textos e ative os prédios embaixo */}
+      <g style={{ pointerEvents: "none" }}>
+        <BuildingText x={695} y={85} w={95} h={60} label="Bloco L" active={hovered === "blocoL"} />
+        <BuildingText x={634} y={128} w={105} h={68} label="Bloco O" active={hovered === "blocoO"} />
+        <BuildingText x={452} y={140} w={108} h={85} label="Bloco J" active={hovered === "blocoJ"} />
+        <BuildingText x={283} y={155} w={137} h={78} label="Blocos C, D e E" active={hovered === "blocoCDE"} />
+        <BuildingText x={525} y={190} w={100} h={78} label="Bloco K" active={hovered === "blocoK"} />
+        <BuildingText x={345} y={210} w={128} h={88} label="Blocos F e G" active={hovered === "blocoFG"} />
+        <BuildingText x={272} y={225} w={54} h={44} label="Lanchonetes" active={hovered === "lanchonetes"} />
+        <BuildingText x={634} y={228} w={134} h={60} label="Labs e Salas de Aula" active={hovered === "labSalas"} />
+        <BuildingText x={120} y={240} w={148} h={92} label="Blocos A e B" active={hovered === "blocoAB"} />
+        <BuildingText x={88} y={305} w={58} h={68} label="Lab. Eng." active={hovered === "labEng"} />
+
+        {/* Textos customizados */}
+        <g transform={`translate(0,${hovered === "quadra" ? -2 : 0})`} style={{ transition: "transform 0.15s" }}>
+          <text x={782} y={136} textAnchor="middle" fill="#ffffff" fontSize="8" fontFamily="'DM Sans',sans-serif" fontWeight="700" style={{ textShadow: "0 2px 4px rgba(0,0,0,0.8), 0 0 2px rgba(0,0,0,1)" }}>Quadra</text>
+          <text x={782} y={146} textAnchor="middle" fill="#ffffff" fontSize="7.5" fontFamily="'DM Sans',sans-serif" fontWeight="600" style={{ textShadow: "0 2px 4px rgba(0,0,0,0.8), 0 0 2px rgba(0,0,0,1)" }}>Poliesportiva</text>
+        </g>
+        <g transform={`translate(0,${hovered === "prefCampus" ? -2 : 0})`} style={{ transition: "transform 0.15s" }}>
+          <text x={626} y={174} textAnchor="middle" fill="#ffffff" fontSize="7.5" fontWeight="700" fontFamily="sans-serif" style={{ textShadow: "0 2px 4px rgba(0,0,0,0.8)" }}>Prefeitura</text>
+          <text x={626} y={183} textAnchor="middle" fill="#ffffff" fontSize="7.5" fontWeight="700" fontFamily="sans-serif" style={{ textShadow: "0 2px 4px rgba(0,0,0,0.8)" }}>Campus</text>
+        </g>
+        <g transform={`translate(0,${hovered === "teatro" ? -2 : 0})`} style={{ transition: "transform 0.15s" }}>
+          <text x={306} y={343} textAnchor="middle" fill="#ffffff" fontSize="8.5" fontFamily="'DM Sans',sans-serif" fontWeight="700" style={{ textShadow: "0 2px 4px rgba(0,0,0,0.8), 0 0 2px rgba(0,0,0,1)" }}>Teatro Veritas</text>
+        </g>
+      </g>
 
       {/* ── Event pins ── */}
-      {events.map(ev => {
+      {sortedEvents.map(ev => {
         const loc = CAMPUS_LOCATIONS[ev.locationKey];
         if (!loc) return null;
         const isSel = selectedId === ev.id;
@@ -377,21 +379,37 @@ function CampusMap({ events, selectedId, onSelect }) {
           <g key={ev.id} style={{ cursor: "pointer" }} onClick={() => onSelect(ev.id)}>
             <ellipse cx={loc.x} cy={loc.y + 6} rx={10} ry={4} fill="#00000044" />
             <line x1={loc.x} y1={py + 20} x2={loc.x} y2={loc.y + 5} stroke={ev.color} strokeWidth="2.5" strokeLinecap="round" />
-            {/* pin glow when selected */}
             {isSel && <circle cx={loc.x} cy={py} r={20} fill={ev.color} opacity="0.22" />}
             <circle cx={loc.x} cy={py} r={16} fill={isSel ? "#fff" : ev.color} stroke={isSel ? ev.color : "#ffffffbb"} strokeWidth={isSel ? 2.5 : 1.5} />
             <text x={loc.x} y={py + 6} textAnchor="middle" fontSize="16">{ev.flyer}</text>
+            
             {isSel && (
               <g>
-                <rect x={loc.x - 42} y={py - 34} width={84} height={20} rx="4" fill="#000000cc" />
-                <text x={loc.x} y={py - 20} textAnchor="middle" fill="#fff" fontSize="8.5" fontFamily="'DM Sans',sans-serif" fontWeight="600">{ev.title}</text>
+                <rect x={loc.x - 70} y={py - 48} width={140} height={26} rx="6" fill="#13121Afa" stroke={ev.color} strokeWidth="1.5" style={{ filter: "drop-shadow(0 4px 6px rgba(0,0,0,0.5))" }} />
+                <text x={loc.x} y={py - 30} textAnchor="middle" fill="#fff" fontSize="10.5" fontFamily="'DM Sans',sans-serif" fontWeight="700">{ev.title}</text>
               </g>
             )}
           </g>
         );
       })}
 
-      {/* watermark */}
+      {/* ── Hover tooltip ── */}
+      {hovered && CAMPUS_LOCATIONS[hovered] && (() => {
+        const loc = CAMPUS_LOCATIONS[hovered];
+        const tx = Math.min(Math.max(loc.x - 78, 6), 710);
+        const ty = Math.max(loc.y - 80, 8);
+        return (
+          <g style={{ filter: "drop-shadow(0 4px 10px rgba(0,0,0,0.6))", pointerEvents: "none" }}>
+            <rect x={tx} y={ty} width={160} height={54} rx="6" fill="#13121Afa" stroke="#ffffff33" strokeWidth="1" />
+            <text x={tx + 80} y={ty + 18} textAnchor="middle" fill="#fff" fontSize="9.5" fontFamily="'DM Sans',sans-serif" fontWeight="700">{loc.label}</text>
+            <text x={tx + 80} y={ty + 32} textAnchor="middle" fill="#ffffffcc" fontSize="7.5" fontFamily="sans-serif">{loc.desc.substring(0, 40)}</text>
+            {loc.desc.length > 40 && (
+              <text x={tx + 80} y={ty + 44} textAnchor="middle" fill="#ffffffcc" fontSize="7.5" fontFamily="sans-serif">{loc.desc.substring(40, 78)}{loc.desc.length > 78 ? "…" : ""}</text>
+            )}
+          </g>
+        );
+      })()}
+
       <text x="816" y="516" textAnchor="end" fill="#ffffff14" fontSize="8" fontFamily="sans-serif">Campus Unisagrado · Bauru/SP</text>
     </svg>
   );
@@ -456,7 +474,7 @@ export default function App() {
         backdropFilter: "blur(8px)",
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <div style={{ width: 34, height: 34, borderRadius: 9, background: "linear-gradient(135deg,#C8102E,#7a0010)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 17 }}>🎓</div>
+          <img src={logo} alt="CampusON Logo" style={{width: 34, height: 34, borderRadius: 9, objectFit: "cover"}}/>
           <div>
             <span style={{ fontWeight: 700, fontSize: 16, letterSpacing: "-0.3px" }}>
               Campus<span style={{ color: "#E63946" }}>ON</span>
