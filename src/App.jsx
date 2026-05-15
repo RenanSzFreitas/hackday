@@ -2,19 +2,19 @@ import { useState } from "react";
 import logo from "./assets/logoon.png";
 
 const CAMPUS_LOCATIONS = {
-  blocoAB:     { x: 195, y: 295, label: "Blocos A e B",          desc: "Biblioteca, Reitoria, Pró-Reitoria, RH, Grupo de Tecnologia" },
-  lanchonetes: { x: 308, y: 258, label: "Lanchonetes",           desc: "Área de alimentação do campus" },
-  blocoCDE:    { x: 352, y: 195, label: "Blocos C, D e E",       desc: "Brinquedoteca, Anfiteatros E-001/E-002, Central de Eventos, Labs" },
-  teatro:      { x: 310, y: 308, label: "Teatro Veritas",        desc: "Teatro universitário" },
-  blocoFG:     { x: 412, y: 265, label: "Blocos F e G",          desc: "Labs de Informática, Chapel, Ciências Humanas e Exatas" },
-  blocoJ:      { x: 505, y: 193, label: "Bloco J",               desc: "Restaurante, Auditórios João Paulo II e Clélia Merloni, Labs" },
-  blocoK:      { x: 575, y: 242, label: "Bloco K",               desc: "NUPHIS, Empresa Júnior, Clínicas de Fisioterapia, Psicologia e Odontologia" },
-  prefCampus:  { x: 622, y: 148, label: "Prefeitura do Campus",  desc: "Prefeitura do Campus e Setor de Transportes" },
-  blocoO:      { x: 688, y: 168, label: "Bloco O",               desc: "Clínicas de Odontologia, Auditórios O 002 e O 004, Labs" },
-  blocoL:      { x: 742, y: 118, label: "Bloco L",               desc: "Pró-Reitoria de Pesquisa e Pós-Graduação, Anfiteatro L003, Labs" },
-  quadra:      { x: 778, y: 88,  label: "Quadra Poliesportiva",  desc: "Quadra poliesportiva coberta" },
-  labEng:      { x: 115, y: 348, label: "Lab. de Engenharia",    desc: "Laboratório de Engenharia" },
-  labSalas:    { x: 710, y: 268, label: "Labs e Salas de Aula",  desc: "Laboratórios e salas de aula" },
+  blocoAB: { x: 195, y: 295, label: "Blocos A e B", desc: "Biblioteca, Reitoria, Pró-Reitoria, RH, Grupo de Tecnologia" },
+  lanchonetes: { x: 308, y: 258, label: "Lanchonetes", desc: "Área de alimentação do campus" },
+  blocoCDE: { x: 352, y: 195, label: "Blocos C, D e E", desc: "Brinquedoteca, Anfiteatros E-001/E-002, Central de Eventos, Labs" },
+  teatro: { x: 310, y: 308, label: "Teatro Veritas", desc: "Teatro universitário" },
+  blocoFG: { x: 412, y: 265, label: "Blocos F e G", desc: "Labs de Informática, Chapel, Ciências Humanas e Exatas" },
+  blocoJ: { x: 505, y: 193, label: "Bloco J", desc: "Restaurante, Auditórios João Paulo II e Clélia Merloni, Labs" },
+  blocoK: { x: 575, y: 242, label: "Bloco K", desc: "NUPHIS, Empresa Júnior, Clínicas de Fisioterapia, Psicologia e Odontologia" },
+  prefCampus: { x: 622, y: 148, label: "Prefeitura do Campus", desc: "Prefeitura do Campus e Setor de Transportes" },
+  blocoO: { x: 688, y: 168, label: "Bloco O", desc: "Clínicas de Odontologia, Auditórios O 002 e O 004, Labs" },
+  blocoL: { x: 742, y: 118, label: "Bloco L", desc: "Pró-Reitoria de Pesquisa e Pós-Graduação, Anfiteatro L003, Labs" },
+  quadra: { x: 778, y: 88, label: "Quadra Poliesportiva", desc: "Quadra poliesportiva coberta" },
+  labEng: { x: 115, y: 348, label: "Lab. de Engenharia", desc: "Laboratório de Engenharia" },
+  labSalas: { x: 710, y: 268, label: "Labs e Salas de Aula", desc: "Laboratórios e salas de aula" },
 };
 
 const EVENTS = [
@@ -70,11 +70,11 @@ const EVENTS = [
 
 const CATEGORY_COLORS = {
   Tecnologia: { bg: "#EEF2FF", text: "#3730A3" },
-  Arte:       { bg: "#FCE7F3", text: "#9D174D" },
-  Pesquisa:   { bg: "#D1FAE5", text: "#065F46" },
-  Esporte:    { bg: "#FEF3C7", text: "#92400E" },
-  Política:   { bg: "#EDE9FE", text: "#5B21B6" },
-  Cultura:    { bg: "#CFFAFE", text: "#164E63" },
+  Arte: { bg: "#FCE7F3", text: "#9D174D" },
+  Pesquisa: { bg: "#D1FAE5", text: "#065F46" },
+  Esporte: { bg: "#FEF3C7", text: "#92400E" },
+  Política: { bg: "#EDE9FE", text: "#5B21B6" },
+  Cultura: { bg: "#CFFAFE", text: "#164E63" },
 };
 
 const REACTION_EMOJIS = ["🔥", "👏", "😮", "❤️"];
@@ -136,8 +136,8 @@ function BuildingText({ x, y, w, h, label, active }) {
   const hoverShift = active ? -2 : 0;
   return (
     <g transform={`translate(0,${hoverShift})`} style={{ transition: "transform 0.15s" }}>
-      <text x={x + w / 2} y={y + h + 16} textAnchor="middle" fill="#ffffff" fontSize="9" fontFamily="'DM Sans',sans-serif" fontWeight="700" 
-            style={{ textShadow: "0px 2px 4px rgba(0,0,0,0.8), 0px 0px 3px rgba(0,0,0,1)" }}>{label}</text>
+      <text x={x + w / 2} y={y + h + 16} textAnchor="middle" fill="#ffffff" fontSize="9" fontFamily="'DM Sans',sans-serif" fontWeight="700"
+        style={{ textShadow: "0px 2px 4px rgba(0,0,0,0.8), 0px 0px 3px rgba(0,0,0,1)" }}>{label}</text>
     </g>
   );
 }
@@ -224,13 +224,13 @@ function CampusMap({ events, selectedId, onSelect }) {
 
       {/* ══════════════ TREES (Movidas para baixo no Z-index) ══════════════ */}
       {[
-        [128,152],[160,146],[194,141],[228,137],[263,133],[298,129],[334,125],[370,122],[406,119],[442,116],[478,113],[514,110],[550,107],[586,104],[622,101],[658,98],[694,95],[730,92],
-        [98,310],[98,355],[98,400],[98,452],[98,490],
-        [800,210],[800,275],[800,340],[800,405],[800,460],
-        [195,415],[275,420],[360,425],[445,430],[530,425],[620,420],[710,415],
+        [128, 152], [160, 146], [194, 141], [228, 137], [263, 133], [298, 129], [334, 125], [370, 122], [406, 119], [442, 116], [478, 113], [514, 110], [550, 107], [586, 104], [622, 101], [658, 98], [694, 95], [730, 92],
+        [98, 310], [98, 355], [98, 400], [98, 452], [98, 490],
+        [800, 210], [800, 275], [800, 340], [800, 405], [800, 460],
+        [195, 415], [275, 420], [360, 425], [445, 430], [530, 425], [620, 420], [710, 415],
       ].map(([tx, ty], i) => <Tree key={i} x={tx} y={ty} size={0.9} />)}
       {/* extra trees near entrance */}
-      {[[130,478],[175,480],[220,478],[300,480],[380,478],[460,478],[540,480],[620,478],[700,478],[760,476]].map(([tx, ty], i) => (
+      {[[130, 478], [175, 480], [220, 478], [300, 480], [380, 478], [460, 478], [540, 480], [620, 478], [700, 478], [760, 476]].map(([tx, ty], i) => (
         <Tree key={`b${i}`} x={tx} y={ty} size={0.75} />
       ))}
 
@@ -337,7 +337,7 @@ function CampusMap({ events, selectedId, onSelect }) {
       </g>
 
       {/* Lab Engenharia (y=305) */}
-      <g style={{ cursor: "pointer" }} onClick={() => {}} onMouseEnter={() => setHovered("labEng")} onMouseLeave={() => setHovered(null)}>
+      <g style={{ cursor: "pointer" }} onClick={() => { }} onMouseEnter={() => setHovered("labEng")} onMouseLeave={() => setHovered(null)}>
         <Building x={88} y={305} w={58} h={68} color="#8B7355" roofColor="#6d5940" active={hovered === "labEng"} rows={3} cols={3} roofH={10} />
       </g>
 
@@ -382,7 +382,7 @@ function CampusMap({ events, selectedId, onSelect }) {
             {isSel && <circle cx={loc.x} cy={py} r={20} fill={ev.color} opacity="0.22" />}
             <circle cx={loc.x} cy={py} r={16} fill={isSel ? "#fff" : ev.color} stroke={isSel ? ev.color : "#ffffffbb"} strokeWidth={isSel ? 2.5 : 1.5} />
             <text x={loc.x} y={py + 6} textAnchor="middle" fontSize="16">{ev.flyer}</text>
-            
+
             {isSel && (
               <g>
                 <rect x={loc.x - 70} y={py - 48} width={140} height={26} rx="6" fill="#13121Afa" stroke={ev.color} strokeWidth="1.5" style={{ filter: "drop-shadow(0 4px 6px rgba(0,0,0,0.5))" }} />
@@ -467,22 +467,45 @@ export default function App() {
       <style>{css}</style>
 
       {/* ── HEADER ── */}
-      <header style={{
-        borderBottom: "1px solid #1C1C25", padding: "0 1.5rem",
-        display: "flex", alignItems: "center", justifyContent: "space-between",
-        height: 58, position: "sticky", top: 0, zIndex: 50, background: "#0D0D12",
-        backdropFilter: "blur(8px)",
-      }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <img src={logo} alt="CampusON Logo" style={{width: 34, height: 34, borderRadius: 9, objectFit: "cover"}}/>
+      <header
+        style={{
+          borderBottom: "1px solid #1C1C25",
+          padding: window.innerWidth < 768 ? "0 1rem" : "0 1.5rem",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          height: 70,
+          position: "sticky",
+          top: 0,
+          zIndex: 50,
+          background: "#0D0D12",
+          backdropFilter: "blur(8px)",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 16,
+            minWidth: 140
+          }}
+        >
+          <img src={logo} alt="CampusON Logo" style={{ width: 34, height: 34, borderRadius: 9, objectFit: "cover" }} />
           <div>
-            <span style={{ fontWeight: 700, fontSize: 16, letterSpacing: "-0.3px" }}>
+            <span
+              style={{
+                fontWeight: 700,
+                fontSize: 16,
+                letterSpacing: "-0.6px",
+                lineHeight: 1
+              }}
+            >
               Campus<span style={{ color: "#E63946" }}>ON</span>
             </span>
             <span style={{ fontSize: 10, color: "#444", display: "block", lineHeight: 1.1 }}>Unisagrado · Bauru</span>
           </div>
         </div>
-        <nav style={{ display: "flex", gap: 4 }}>
+        <nav style={{ display: "flex", gap: 8, marginLeft: "auto" }}>
           {[{ id: "mural", label: "Mural", icon: "📋" }, { id: "mapa", label: "Mapa", icon: "🗺️" }].map(tab => (
             <button key={tab.id} onClick={() => setView(tab.id)} style={{
               padding: "6px 14px", borderRadius: 8, border: "none", cursor: "pointer",
@@ -502,7 +525,22 @@ export default function App() {
               <button onClick={() => { setUser(null); setUserReactions({}); }} style={{ fontSize: 11, color: "#555", background: "none", border: "none", cursor: "pointer", fontFamily: "inherit" }}>sair</button>
             </div>
           ) : (
-            <button onClick={() => setLoginModal(true)} style={{ padding: "7px 16px", borderRadius: 8, border: "1px solid #2a1018", background: "#18080e", color: "#E63946", fontSize: 13, fontWeight: 500, cursor: "pointer", fontFamily: "inherit" }}>Entrar</button>
+            <button
+              onClick={() => setLoginModal(true)}
+              style={{
+                padding: window.innerWidth < 768 ? "6px 12px" : "7px 16px",
+                borderRadius: 8,
+                border: "1px solid #2a1018",
+                background: "#18080e",
+                color: "#E63946",
+                fontSize: 13,
+                fontWeight: 500,
+                cursor: "pointer",
+                fontFamily: "inherit"
+              }}
+            >
+              Entrar
+            </button>
           )}
         </div>
       </header>
@@ -581,7 +619,7 @@ export default function App() {
           </div>
 
           {/* Map + Sidebar grid */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 280px", gap: "1.5rem", alignItems: "start" }}>
+          <div style={{ display: "grid", gridTemplateColumns: window.innerWidth < 768 ? "1fr" : "1fr 280px", gap: "1.5rem", alignItems: "start" }}>
 
             {/* MAP */}
             <div style={{ borderRadius: 14, overflow: "hidden", border: "1px solid #1C1C25" }}>
