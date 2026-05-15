@@ -797,7 +797,7 @@ export default function App() {
             <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
               <div style={{ fontSize: 36, marginBottom: 8 }}>🎓</div>
               <h2 style={{ margin: "0 0 6px", fontSize: 19, fontWeight: 700 }}>Entrar no CampusON</h2>
-              <p style={{ color: "#555", fontSize: 13, margin: 0 }}>Entre utilizando seu RA </p>"
+              <p style={{ color: "#555", fontSize: 13, margin: 0 }}>Entre utilizando seu RA </p>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
               <input placeholder="Seu nome" value={loginForm.name} onChange={e => setLoginForm(p => ({ ...p, name: e.target.value }))} style={{ padding: "11px 14px", borderRadius: 10, border: "1px solid #2a1018", background: "#0A0A12", color: "#F1EFF8", fontSize: 14, fontFamily: "inherit", outline: "none" }} />
