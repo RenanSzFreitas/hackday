@@ -18,73 +18,49 @@ const CAMPUS_LOCATIONS = {
 
 const EVENTS = [
   {
-    id: 1,
-    title: "Hack@Day",
-    locationKey: "blocoCDE",
-    block: "Sala E001",
+    id: 1, title: "Hack@Day", locationKey: "blocoCDE", block: "Sala E001",
     description: "Uma semana de palestras, workshops e hackathons com empresas de tecnologia. Aprenda, conecte-se e inove com colegas e profissionais da área.",
-    category: "Tecnologia",
-    date: "11 Mai", time: "19h–22h",
+    category: "Tecnologia", date: "11 Mai", time: "19h–22h",
     involved: ["Centro Acadêmico de TI", "Prof. Rodrigo Matos", "TechCorp"],
     flyer: "💻", color: "#4F46E5",
     reactions: { "🔥": 24, "👏": 18, "😮": 7, "❤️": 31 },
   },
   {
-    id: 2,
-    title: "Festival de Arte & Design",
-    locationKey: "blocoFG",
-    block: "Blocos C, D e E – Central de Eventos",
+    id: 2, title: "Festival de Arte & Design", locationKey: "blocoFG", block: "Blocos C, D e E – Central de Eventos",
     description: "Exposição coletiva dos alunos de design, arquitetura e artes visuais. Performances ao vivo, instalações e feira de produtos artesanais.",
-    category: "Arte",
-    date: "23 Mai", time: "10h–20h",
+    category: "Arte", date: "23 Mai", time: "10h–20h",
     involved: ["DAA – Diretório Acadêmico", "Profa. Carla Vaz", "Coletivo Pixel"],
     flyer: "🎨", color: "#DB2777",
     reactions: { "🔥": 41, "👏": 29, "😮": 13, "❤️": 56 },
   },
   {
-    id: 3,
-    title: "Jornada Científica",
-    locationKey: "blocoL",
-    block: "Bloco L – Pró-Reitoria de Pesquisa",
+    id: 3, title: "Jornada Científica", locationKey: "blocoL", block: "Bloco L – Pró-Reitoria de Pesquisa",
     description: "Apresentação de trabalhos de IC, pós-graduação e pesquisas de extensão. Avaliação por bancas compostas por professores e pesquisadores externos.",
-    category: "Pesquisa",
-    date: "27 Mai", time: "09h–17h",
+    category: "Pesquisa", date: "27 Mai", time: "09h–17h",
     involved: ["Pró-Reitoria de Pesquisa", "Prof. André Lemos", "CNPq"],
     flyer: "🔬", color: "#059669",
     reactions: { "🔥": 15, "👏": 33, "😮": 22, "❤️": 19 },
   },
   {
-    id: 4,
-    title: "Copa dos Calouros",
-    locationKey: "quadra",
-    block: "Quadra Poliesportiva",
+    id: 4, title: "Copa dos Calouros", locationKey: "quadra", block: "Quadra Poliesportiva",
     description: "Torneio esportivo entre turmas do 1º ano. Modalidades: futebol, vôlei e basquete. Troféu e premiação para os vencedores.",
-    category: "Esporte",
-    date: "30 Mai", time: "14h–19h",
+    category: "Esporte", date: "30 Mai", time: "14h–19h",
     involved: ["Atlética Unisagrado", "Coord. de Esportes", "Turmas 2025"],
     flyer: "⚽", color: "#D97706",
     reactions: { "🔥": 67, "👏": 45, "😮": 8, "❤️": 38 },
   },
   {
-    id: 5,
-    title: "Roda de Debates",
-    locationKey: "blocoJ",
-    block: "Bloco J – Auditório João Paulo II",
+    id: 5, title: "Roda de Debates", locationKey: "blocoJ", block: "Bloco J – Auditório João Paulo II",
     description: "Debate aberto sobre políticas estudantis, reforma universitária e participação democrática. Mediado pelo DCE com representantes de todos os cursos.",
-    category: "Política",
-    date: "3 Jun", time: "18h–21h",
+    category: "Política", date: "3 Jun", time: "18h–21h",
     involved: ["DCE Unisagrado", "Centros Acadêmicos", "Profa. Mariana Costa"],
     flyer: "🗣️", color: "#7C3AED",
     reactions: { "🔥": 29, "👏": 52, "😮": 34, "❤️": 21 },
   },
   {
-    id: 6,
-    title: "Noite Cultural Intercâmbio",
-    locationKey: "blocoK",
-    block: "Bloco K – Empresa Júnior",
+    id: 6, title: "Noite Cultural Intercâmbio", locationKey: "blocoK", block: "Bloco K – Empresa Júnior",
     description: "Celebração da diversidade cultural com alunos estrangeiros e brasileiros. Apresentações musicais, dança, culinária internacional e exposição fotográfica.",
-    category: "Cultura",
-    date: "7 Jun", time: "17h–22h",
+    category: "Cultura", date: "7 Jun", time: "17h–22h",
     involved: ["Assessoria Internacional", "Alunos Intercambistas", "Grupo Folclore BR"],
     flyer: "🌍", color: "#0891B2",
     reactions: { "🔥": 88, "👏": 61, "😮": 19, "❤️": 74 },
@@ -92,271 +68,336 @@ const EVENTS = [
 ];
 
 const CATEGORY_COLORS = {
-  Tecnologia: { bg: "#EEF2FF", text: "#4338CA" },
-  Arte:       { bg: "#FDF2F8", text: "#9D174D" },
-  Pesquisa:   { bg: "#ECFDF5", text: "#065F46" },
-  Esporte:    { bg: "#FFFBEB", text: "#92400E" },
-  Política:   { bg: "#F5F3FF", text: "#5B21B6" },
-  Cultura:    { bg: "#ECFEFF", text: "#164E63" },
+  Tecnologia: { bg: "#EEF2FF", text: "#3730A3" },
+  Arte:       { bg: "#FCE7F3", text: "#9D174D" },
+  Pesquisa:   { bg: "#D1FAE5", text: "#065F46" },
+  Esporte:    { bg: "#FEF3C7", text: "#92400E" },
+  Política:   { bg: "#EDE9FE", text: "#5B21B6" },
+  Cultura:    { bg: "#CFFAFE", text: "#164E63" },
 };
 
 const REACTION_EMOJIS = ["🔥", "👏", "😮", "❤️"];
 
-// Árvores decorativas nos gramados
-const TREES = [
-  [128,158],[155,152],[188,146],[224,142],[262,138],[300,134],[338,130],[376,127],[414,124],[452,121],[490,118],[528,115],[566,112],[604,109],[642,106],[680,103],[718,100],[756,97],
-  [100,310],[100,360],[100,415],[100,460],[100,490],
-  [795,210],[795,280],[795,350],[795,420],[795,470],
-  [200,440],[280,445],[360,450],[440,450],[520,450],[600,445],[680,440],[760,435],
-];
+// ─── Map helpers ─────────────────────────────────────────────────────────────
 
-function Tree({ x, y }) {
+function Grass({ x, y, w, h }) {
   return (
-    <g>
-      <rect x={x - 2} y={y + 7} width={4} height={8} fill="#5a3a1a" />
-      <circle cx={x} cy={y} r={10} fill="#1a3d18" />
-      <circle cx={x} cy={y - 4} r={7} fill="#226120" />
-    </g>
+    <rect x={x} y={y} width={w} height={h} fill="#2a5e24" rx="2" />
   );
 }
 
-function Building({ x, y, w, h, color, hoverColor, label, active, rows = 3, cols = 5, roofH = 10 }) {
-  const winW = 12, winH = 14;
-  const colStep = (w - 12) / Math.max(cols - 1, 1);
-  const rowStep = (h - 12) / Math.max(rows - 1, 1);
+function Windows({ x, y, w, h, rows = 2, cols = 4, winColor = "#a8d8ea" }) {
+  const padX = 10, padY = 10;
+  const cw = (w - padX * 2) / cols;
+  const rh = (h - padY * 2) / rows;
+  const ww = Math.max(cw * 0.5, 4);
+  const wh = Math.max(rh * 0.5, 4);
   return (
-    <g>
-      {/* telhado */}
-      <rect x={x} y={y - roofH} width={w} height={roofH} rx="2" fill={active ? hoverColor : color} opacity={0.9} />
-      {/* corpo */}
-      <rect x={x} y={y} width={w} height={h} rx="3" fill={active ? hoverColor : color} stroke={color} strokeWidth="1" strokeOpacity="0.4" />
-      {/* janelas */}
+    <>
       {Array.from({ length: rows }).map((_, r) =>
         Array.from({ length: cols }).map((_, c) => (
-          <rect key={`${r}-${c}`}
-            x={x + 6 + c * colStep} y={y + 7 + r * rowStep}
-            width={winW} height={winH}
-            fill="#87CEEB" opacity="0.35" rx="1" />
+          <rect
+            key={`w-${r}-${c}`}
+            x={x + padX + c * cw + (cw - ww) / 2}
+            y={y + padY + r * rh + (rh - wh) / 2}
+            width={ww} height={wh}
+            fill={winColor} opacity="0.55" rx="1"
+          />
         ))
       )}
+    </>
+  );
+}
+
+function Building({ x, y, w, h, color, roofColor, label, subLabel, active, rows = 2, cols = 4, roofH = 12, accent }) {
+  const hoverShift = active ? -2 : 0;
+  return (
+    <g transform={`translate(0,${hoverShift})`} style={{ transition: "transform 0.15s" }}>
+      {/* shadow */}
+      <rect x={x + 3} y={y + h + 2} width={w} height={6} fill="#00000022" rx="2" />
+      {/* roof */}
+      <rect x={x} y={y - roofH} width={w} height={roofH + 2} fill={active ? roofColor : roofColor} rx="3" />
+      <rect x={x + 4} y={y - roofH + 3} width={w - 8} height={3} fill="#ffffff18" rx="1" />
+      {/* facade */}
+      <rect x={x} y={y} width={w} height={h} fill={active ? color : color} rx="2" />
+      {/* facade shading — left strip */}
+      <rect x={x} y={y} width={5} height={h} fill="#00000018" rx="2" />
+      {/* windows */}
+      <Windows x={x} y={y} w={w} h={h} rows={rows} cols={cols} winColor={accent || "#a8d8ea"} />
+      {/* ground line */}
+      <rect x={x} y={y + h} width={w} height={2} fill="#00000033" />
       {label && (
-        <text x={x + w / 2} y={y + h + 14} textAnchor="middle"
-          fill="#ffffffcc" fontSize="8" fontFamily="sans-serif" fontWeight="bold">{label}</text>
+        <text x={x + w / 2} y={y + h + 16} textAnchor="middle"
+          fill="#ffffffdd" fontSize="8.5" fontFamily="'DM Sans',sans-serif" fontWeight="600">{label}</text>
+      )}
+      {subLabel && (
+        <text x={x + w / 2} y={y + h + 27} textAnchor="middle"
+          fill="#ffffff77" fontSize="7" fontFamily="'DM Sans',sans-serif">{subLabel}</text>
       )}
     </g>
   );
 }
 
+function Tree({ x, y, size = 1 }) {
+  const s = size;
+  return (
+    <g>
+      <ellipse cx={x} cy={y + 5 * s} rx={5 * s} ry={3 * s} fill="#00000033" />
+      <rect x={x - 2 * s} y={y + 2 * s} width={4 * s} height={7 * s} fill="#5C3D11" />
+      <circle cx={x} cy={y - 2 * s} r={9 * s} fill="#1a3d16" />
+      <circle cx={x - 3 * s} cy={y - 5 * s} r={6 * s} fill="#235920" />
+      <circle cx={x + 3 * s} cy={y - 4 * s} r={6 * s} fill="#1e5019" />
+      <circle cx={x} cy={y - 8 * s} r={5 * s} fill="#2a6e24" />
+    </g>
+  );
+}
+
+function ParkingLot({ x, y, w, h, label }) {
+  const spots = Math.floor(w / 18);
+  return (
+    <g>
+      <rect x={x} y={y} width={w} height={h} fill="#1c1c22" rx="3" />
+      <rect x={x + 1} y={y + 1} width={w - 2} height={h - 2} fill="#22222c" rx="2" />
+      {Array.from({ length: spots }).map((_, i) => (
+        <line key={i} x1={x + 9 + i * 18} y1={y + 3} x2={x + 9 + i * 18} y2={y + h - 3} stroke="#ffffff15" strokeWidth="1" />
+      ))}
+      <text x={x + w / 2} y={y + h / 2 + 4} textAnchor="middle" fill="#ffffff25" fontSize="7" fontFamily="sans-serif">{label}</text>
+    </g>
+  );
+}
+
+function Gate({ x, y, label }) {
+  return (
+    <g>
+      <rect x={x} y={y} width={24} height={30} fill="#c8b456" rx="2" />
+      <rect x={x + 3} y={y + 4} width={8} height={10} fill="#00000033" rx="1" />
+      <rect x={x + 13} y={y + 4} width={8} height={10} fill="#00000033" rx="1" />
+      <rect x={x + 3} y={y + 17} width={18} height={10} fill="#00000022" rx="1" />
+      <text x={x + 12} y={y + 42} textAnchor="middle" fill="#ffffffaa" fontSize="6.5" fontFamily="sans-serif">{label}</text>
+    </g>
+  );
+}
+
+function Road({ points, dashed = false }) {
+  return (
+    <polyline
+      points={points}
+      fill="none" stroke="#ffffff18" strokeWidth={dashed ? 1 : 0}
+      strokeDasharray={dashed ? "20,12" : undefined}
+    />
+  );
+}
+
+// ─── Main Map SVG ──────────────────────────────────────────────────────────
 function CampusMap({ events, selectedId, onSelect }) {
   const [hovered, setHovered] = useState(null);
 
-  const activeKey = hovered;
-
   return (
-    <svg
-  viewBox="0 0 900 520"
-  preserveAspectRatio="xMidYMid meet"
-  style={{
-    width: "100%",
-    minHeight: window.innerWidth < 768 ? 260 : "auto",
-    display: "block",
-    borderRadius: 12,
-    background: "#1a2e1a",
-  }}
->
-      {/* fundo gramado */}
-      <rect width="900" height="520" fill="#2d5a27" />
+    <svg viewBox="0 0 900 520" preserveAspectRatio="xMidYMid meet"
+      style={{ width: "100%", display: "block", borderRadius: 12, background: "#162b12" }}>
 
-      {/* Rua Irmã Arminda — faixa diagonal topo */}
-      <polygon points="0,50 900,0 900,52 0,105" fill="#3a3a3a" />
-      <polygon points="0,103 900,50 900,56 0,110" fill="#4a4a44" />
-      <line x1="0" y1="75" x2="900" y2="24" stroke="#fff" strokeWidth="0.8" strokeDasharray="28,18" opacity="0.25" />
+      {/* ── Base grass ── */}
+      <rect width="900" height="520" fill="#2a5720" />
 
-      {/* Rua lateral direita */}
-      <polygon points="818,52 900,48 900,520 818,520" fill="#3a3a3a" />
-      <line x1="858" y1="50" x2="858" y2="520" stroke="#fff" strokeWidth="0.8" strokeDasharray="28,18" opacity="0.2" />
+      {/* ── Main street top (diagonal) ── */}
+      <polygon points="0,45 900,0 900,56 0,100" fill="#2e2e2e" />
+      <polygon points="0,98 900,54 900,58 0,104" fill="#3a3a3a" />
+      {/* lane markers */}
+      <line x1="0" y1="71" x2="900" y2="27" stroke="#ffffff22" strokeWidth="1" strokeDasharray="24,14" />
 
-      {/* Rua lateral esquerda */}
-      <polygon points="0,103 82,100 82,520 0,520" fill="#3a3a3a" />
+      {/* ── Side streets ── */}
+      <polygon points="820,50 900,47 900,520 820,520" fill="#2e2e2e" />
+      <line x1="860" y1="50" x2="860" y2="520" stroke="#ffffff18" strokeWidth="0.8" strokeDasharray="20,12" />
+      <polygon points="0,100 80,98 80,520 0,520" fill="#2e2e2e" />
+      <line x1="40" y1="100" x2="40" y2="520" stroke="#ffffff18" strokeWidth="0.8" strokeDasharray="20,12" />
 
-      {/* Calçadas internas */}
-      <line x1="82" y1="195" x2="818" y2="145" stroke="#55664455" strokeWidth="7" />
-      <line x1="82" y1="395" x2="818" y2="395" stroke="#55664455" strokeWidth="7" />
-      <line x1="318" y1="103" x2="318" y2="520" stroke="#55664455" strokeWidth="7" />
-      <line x1="578" y1="90" x2="578" y2="520" stroke="#55664455" strokeWidth="7" />
+      {/* ── Internal pathways ── */}
+      {/* horizontal walkway */}
+      <rect x="80" y="392" width="740" height="8" fill="#3a3a2a" opacity="0.6" />
+      {/* vertical walkways */}
+      <rect x="316" y="100" width="7" height="400" fill="#3a3a2a" opacity="0.5" />
+      <rect x="576" y="90" width="7" height="400" fill="#3a3a2a" opacity="0.5" />
+      {/* diagonal connector (Blocos A→C) */}
+      <line x1="265" y1="250" x2="285" y2="168" stroke="#3a3a2a" strokeWidth="7" opacity="0.6" />
 
-      {/* Gramados centrais */}
-      <ellipse cx="200" cy="420" rx="55" ry="25" fill="#256b20" opacity="0.6" />
-      <ellipse cx="700" cy="380" rx="55" ry="22" fill="#256b20" opacity="0.6" />
+      {/* ── Grass patches ── */}
+      <ellipse cx="195" cy="430" rx="60" ry="18" fill="#235a1e" />
+      <ellipse cx="700" cy="380" rx="50" ry="15" fill="#235a1e" />
+      <ellipse cx="450" cy="460" rx="45" ry="13" fill="#235a1e" />
 
-      {/* Árvores */}
-      {TREES.map(([tx, ty], i) => <Tree key={i} x={tx} y={ty} />)}
+      {/* ── Parking lots ── */}
+      <ParkingLot x={88} y={440} w={150} h={55} label="Estacionamento" />
+      <ParkingLot x={492} y={318} w={268} h={52} label="Estacionamento" />
+      <ParkingLot x={636} y={310} w={148} h={52} label="Estacionamento" />
 
-      {/* ===== ESTACIONAMENTOS ===== */}
-      {[[88, 450, 155, 52], [490, 325, 270, 48], [638, 315, 150, 48]].map(([ex, ey, ew, eh], i) => (
+      {/* ── Gates ── */}
+      <Gate x={82} y={392} label="Portão 5" />
+      <Gate x={82} y={182} label="Portão 1" />
+      <Gate x={749} y={68} label="Portão 4" />
+      <Gate x={795} y={342} label="Portão 2" />
+      <Gate x={795} y={170} label="Portão 3" />
+
+      {/* ── Bus stops ── */}
+      {[[84, 270], [792, 248]].map(([bx, by], i) => (
         <g key={i}>
-          <rect x={ex} y={ey} width={ew} height={eh} rx="3" fill="#22222299" />
-          {Array.from({ length: Math.floor(ew / 20) }).map((_, j) => (
-            <line key={j} x1={ex + 12 + j * 20} y1={ey} x2={ex + 12 + j * 20} y2={ey + eh} stroke="#ffffff18" strokeWidth="1" />
-          ))}
-          <text x={ex + ew / 2} y={ey + eh / 2 + 4} textAnchor="middle" fill="#ffffff33" fontSize="7" fontFamily="sans-serif">Estacionamento</text>
+          <rect x={bx} y={by} width={20} height={26} fill="#1a5fa8" rx="2" />
+          <rect x={bx} y={by} width={20} height={6} fill="#2472c2" rx="2" />
+          <text x={bx + 10} y={by + 37} textAnchor="middle" fill="#ffffffaa" fontSize="6.5" fontFamily="sans-serif">Ônibus</text>
         </g>
       ))}
 
-      {/* ===== PORTÕES ===== */}
+      {/* ── Trees ── */}
       {[
-        { x: 84, y: 400, label: "Portão 1" },
-        { x: 84, y: 205, label: "Portão 5" },
-        { x: 750, y: 76, label: "Portão 4" },
-        { x: 790, y: 345, label: "Portão 2" },
-        { x: 790, y: 173, label: "Portão 3" },
-      ].map(({ x, y, label }) => (
-        <g key={label}>
-          <rect x={x} y={y} width={26} height={32} rx="2" fill="#c8b560" stroke="#8a7a30" strokeWidth="0.8" />
-          <text x={x + 13} y={y + 42} textAnchor="middle" fill="#ffffffaa" fontSize="6.5" fontFamily="sans-serif">{label}</text>
-        </g>
+        [128,152],[160,146],[194,141],[228,137],[263,133],[298,129],[334,125],[370,122],[406,119],[442,116],[478,113],[514,110],[550,107],[586,104],[622,101],[658,98],[694,95],[730,92],
+        [98,310],[98,355],[98,400],[98,452],[98,490],
+        [800,210],[800,275],[800,340],[800,405],[800,460],
+        [195,415],[275,420],[360,425],[445,430],[530,425],[620,420],[710,415],
+      ].map(([tx, ty], i) => <Tree key={i} x={tx} y={ty} size={0.9} />)}
+      {/* extra trees near entrance */}
+      {[[130,478],[175,480],[220,478],[300,480],[380,478],[460,478],[540,480],[620,478],[700,478],[760,476]].map(([tx, ty], i) => (
+        <Tree key={`b${i}`} x={tx} y={ty} size={0.75} />
       ))}
 
-      {/* Pontos de ônibus */}
-      {[[84, 272], [790, 250]].map(([bx, by], i) => (
-        <g key={i}>
-          <rect x={bx} y={by} width={22} height={28} rx="2" fill="#1a66bb" />
-          <text x={bx + 11} y={by + 38} textAnchor="middle" fill="#ffffffaa" fontSize="6" fontFamily="sans-serif">Ônibus</text>
-        </g>
-      ))}
-
-      {/* ===== BLOCOS ===== */}
+      {/* ══════════════ BUILDINGS ══════════════ */}
 
       {/* Lab Engenharia */}
-      <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("labEng")} onMouseLeave={() => setHovered(null)}>
-        <Building x={88} y={310} w={55} h={65} color="#8B7355" hoverColor="#b09055" label="" active={activeKey === "labEng"} rows={3} cols={3} />
-        <text x={115} y={390} textAnchor="middle" fill="#ffffffaa" fontSize="7" fontFamily="sans-serif">Lab. Eng.</text>
+      <g style={{ cursor: "pointer" }} onClick={() => {}} onMouseEnter={() => setHovered("labEng")} onMouseLeave={() => setHovered(null)}>
+        <Building x={88} y={305} w={58} h={68} color="#8B7355" roofColor="#6d5940" active={hovered === "labEng"} rows={3} cols={3} label="Lab. Eng." roofH={10} />
       </g>
 
       {/* Blocos A e B */}
       <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("blocoAB")} onMouseLeave={() => setHovered(null)}>
-        <Building x={120} y={248} w={145} h={88} color="#A0825A" hoverColor="#c8a060" label="" active={activeKey === "blocoAB"} rows={3} cols={6} />
-        <text x={192} y={352} textAnchor="middle" fill="#ffffffcc" fontSize="9" fontFamily="sans-serif" fontWeight="bold">Blocos A e B</text>
+        <Building x={120} y={240} w={148} h={92} color="#9A7B54" roofColor="#7a6040" active={hovered === "blocoAB"} rows={3} cols={6} label="Blocos A e B" roofH={14} />
       </g>
 
-      {/* Lanchonetes */}
+      {/* Lanchonetes (orange-red) */}
       <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("lanchonetes")} onMouseLeave={() => setHovered(null)}>
-        <Building x={272} y={230} w={52} h={40} color="#c06030" hoverColor="#e07840" label="" active={activeKey === "lanchonetes"} rows={2} cols={3} roofH={8} />
-        <text x={298} y={282} textAnchor="middle" fill="#ffffffaa" fontSize="7" fontFamily="sans-serif">Lanchonetes</text>
+        <Building x={272} y={225} w={54} h={44} color="#c45c2a" roofColor="#9e3f1a" active={hovered === "lanchonetes"} rows={2} cols={3} label="Lanchonetes" roofH={8} accent="#ffd59e" />
       </g>
 
-      {/* Teatro Veritas */}
+      {/* Teatro Veritas (purple) */}
       <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("teatro")} onMouseLeave={() => setHovered(null)}>
-        <Building x={272} y={278} w={68} h={55} color="#6a4499" hoverColor="#8855cc" label="" active={activeKey === "teatro"} rows={2} cols={4} />
-        <polygon points="272,278 340,278 306,258" fill={activeKey === "teatro" ? "#9966dd" : "#7a55aa"} />
-        <text x={306} y={345} textAnchor="middle" fill="#ffffffcc" fontSize="7.5" fontFamily="sans-serif" fontWeight="bold">Teatro Veritas</text>
+        <Building x={270} y={272} w={72} h={58} color="#6a3d99" roofColor="#4e2878" active={hovered === "teatro"} rows={2} cols={4} label="Teatro Veritas" roofH={0} />
+        {/* Pediment / triangular roof */}
+        <polygon points="270,272 342,272 306,250" fill={hovered === "teatro" ? "#7a4dbb" : "#5e347f"} />
+        <line x1="306" y1="250" x2="306" y2="272" stroke="#ffffff22" strokeWidth="1" />
+        <text x={306} y={343} textAnchor="middle" fill="#ffffffcc" fontSize="8" fontFamily="'DM Sans',sans-serif" fontWeight="600">Teatro Veritas</text>
       </g>
 
       {/* Blocos C D E */}
       <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("blocoCDE")} onMouseLeave={() => setHovered(null)}>
-        <Building x={285} y={162} w={133} h={75} color="#9A7B50" hoverColor="#c8a060" label="" active={activeKey === "blocoCDE"} rows={3} cols={6} />
-        <text x={351} y={250} textAnchor="middle" fill="#ffffffcc" fontSize="8.5" fontFamily="sans-serif" fontWeight="bold">Blocos C, D e E</text>
+        <Building x={283} y={155} w={137} h={78} color="#9A7B54" roofColor="#7a6040" active={hovered === "blocoCDE"} rows={3} cols={6} label="Blocos C, D e E" roofH={14} />
       </g>
 
       {/* Blocos F G */}
       <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("blocoFG")} onMouseLeave={() => setHovered(null)}>
-        <Building x={348} y={218} w={125} h={85} color="#A0825A" hoverColor="#c8a060" label="" active={activeKey === "blocoFG"} rows={3} cols={6} />
-        {/* antena chapel */}
-        <rect x={400} y={192} width={6} height={28} fill="#8a7a6a" />
-        <polygon points="397,192 409,192 403,178" fill="#9a8a7a" />
-        <text x={410} y={316} textAnchor="middle" fill="#ffffffcc" fontSize="8.5" fontFamily="sans-serif" fontWeight="bold">Blocos F e G</text>
+        <Building x={345} y={210} w={128} h={88} color="#A0825A" roofColor="#7a6040" active={hovered === "blocoFG"} rows={3} cols={6} label="Blocos F e G" roofH={14} />
+        {/* Chapel antenna */}
+        <rect x={400} y={185} width={5} height={27} fill="#9a9080" />
+        <polygon points="397,185 408,185 402,172" fill="#b0a090" />
+        <circle cx={402} cy={171} r={2} fill="#ffcc44" />
       </g>
 
       {/* Bloco J */}
       <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("blocoJ")} onMouseLeave={() => setHovered(null)}>
-        <Building x={455} y={148} w={105} h={82} color="#9A7B50" hoverColor="#c8a060" label="" active={activeKey === "blocoJ"} rows={3} cols={5} />
-        <text x={507} y={244} textAnchor="middle" fill="#ffffffcc" fontSize="9" fontFamily="sans-serif" fontWeight="bold">Bloco J</text>
+        <Building x={452} y={140} w={108} h={85} color="#9A7B54" roofColor="#7a6040" active={hovered === "blocoJ"} rows={3} cols={5} label="Bloco J" roofH={14} />
       </g>
 
-      {/* Bloco K */}
+      {/* Bloco K (teal) */}
       <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("blocoK")} onMouseLeave={() => setHovered(null)}>
-        <Building x={528} y={195} w={98} h={75} color="#3a8898" hoverColor="#4ab8d8" label="" active={activeKey === "blocoK"} rows={3} cols={5} />
-        <text x={577} y={284} textAnchor="middle" fill="#ffffffcc" fontSize="9" fontFamily="sans-serif" fontWeight="bold">Bloco K</text>
+        <Building x={525} y={190} w={100} h={78} color="#2a7a8e" roofColor="#1a5a6e" active={hovered === "blocoK"} rows={3} cols={5} label="Bloco K" roofH={12} accent="#b0e8f8" />
       </g>
 
       {/* Prefeitura */}
       <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("prefCampus")} onMouseLeave={() => setHovered(null)}>
-        <Building x={600} y={120} w={55} h={45} color="#884444" hoverColor="#c04040" label="" active={activeKey === "prefCampus"} rows={2} cols={3} roofH={8} />
-        <rect x={625} y={102} width={4} height={20} fill="#aaa" />
-        <circle cx={627} cy={100} r={4} fill="#ffaa00" />
-        <text x={627} y={176} textAnchor="middle" fill="#ffffffaa" fontSize="7" fontFamily="sans-serif">Prefeitura</text>
-        <text x={627} y={184} textAnchor="middle" fill="#ffffffaa" fontSize="7" fontFamily="sans-serif">Campus</text>
+        <Building x={597} y={112} w={58} h={48} color="#884444" roofColor="#6a2a2a" active={hovered === "prefCampus"} rows={2} cols={3} roofH={9} accent="#ffb8b8" />
+        {/* Flag */}
+        <rect x={624} y={95} width={3} height={19} fill="#aaaaaa" />
+        <rect x={627} y={95} width={12} height={8} fill="#009c3b" />
+        <rect x={627} y={99} width={12} height={4} fill="#ffdf00" />
+        <text x={626} y={174} textAnchor="middle" fill="#ffffffaa" fontSize="7" fontFamily="sans-serif">Prefeitura</text>
+        <text x={626} y={183} textAnchor="middle" fill="#ffffffaa" fontSize="7" fontFamily="sans-serif">Campus</text>
       </g>
 
-      {/* Bloco O */}
+      {/* Bloco O (teal) */}
       <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("blocoO")} onMouseLeave={() => setHovered(null)}>
-        <Building x={638} y={135} w={102} h={65} color="#3a8898" hoverColor="#4ab8d8" label="" active={activeKey === "blocoO"} rows={3} cols={5} />
-        <text x={689} y={213} textAnchor="middle" fill="#ffffffcc" fontSize="9" fontFamily="sans-serif" fontWeight="bold">Bloco O</text>
+        <Building x={634} y={128} w={105} h={68} color="#2a7a8e" roofColor="#1a5a6e" active={hovered === "blocoO"} rows={3} cols={5} label="Bloco O" roofH={12} accent="#b0e8f8" />
       </g>
 
-      {/* Bloco L */}
+      {/* Bloco L (green) */}
       <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("blocoL")} onMouseLeave={() => setHovered(null)}>
-        <Building x={698} y={93} w={92} h={58} color="#3a7a4a" hoverColor="#5bba6f" label="" active={activeKey === "blocoL"} rows={3} cols={5} roofH={9} />
-        <text x={744} y={165} textAnchor="middle" fill="#ffffffcc" fontSize="9" fontFamily="sans-serif" fontWeight="bold">Bloco L</text>
+        <Building x={695} y={85} w={95} h={60} color="#2e7a45" roofColor="#1e5a32" active={hovered === "blocoL"} rows={3} cols={5} label="Bloco L" roofH={12} accent="#a8f0b8" />
       </g>
 
       {/* Quadra Poliesportiva */}
       <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("quadra")} onMouseLeave={() => setHovered(null)}>
-        <rect x={750} y={68} width={65} height={50} rx="3" fill={activeKey === "quadra" ? "#e8a020" : "#b07010"} stroke="#806000" strokeWidth="1.5" />
-        <rect x={753} y={71} width={59} height={44} rx="1" fill="none" stroke="#ffffff44" strokeWidth="1" />
-        <line x1={782} y1={71} x2={782} y2={115} stroke="#ffffff44" strokeWidth="1" />
-        <circle cx={782} cy={93} r={8} fill="none" stroke="#ffffff44" strokeWidth="1" />
-        <rect x={750} y={60} width={65} height={10} rx="2" fill={activeKey === "quadra" ? "#e8b030" : "#c08020"} />
-        <text x={782} y={132} textAnchor="middle" fill="#ffffffcc" fontSize="7.5" fontFamily="sans-serif" fontWeight="bold">Quadra</text>
-        <text x={782} y={141} textAnchor="middle" fill="#ffffffcc" fontSize="7.5" fontFamily="sans-serif">Poliesportiva</text>
+        {/* Court surface */}
+        <rect x={748} y={60} width={68} height={52} fill={hovered === "quadra" ? "#c88020" : "#a86a10"} rx="3" />
+        {/* Court lines */}
+        <rect x={750} y={62} width={64} height={48} fill="none" stroke="#ffffff30" strokeWidth="1" rx="1" />
+        <line x1={782} y1={62} x2={782} y2={110} stroke="#ffffff30" strokeWidth="1" />
+        <circle cx={782} cy={86} r={9} fill="none" stroke="#ffffff30" strokeWidth="1" />
+        <rect x={748} y={52} width={68} height={10} fill={hovered === "quadra" ? "#d89030" : "#b07820"} rx="2" />
+        {/* Stands */}
+        <rect x={748} y={110} width={68} height={12} fill="#8a5010" rx="1" />
+        <text x={782} y={136} textAnchor="middle" fill="#ffffffcc" fontSize="7.5" fontFamily="'DM Sans',sans-serif" fontWeight="600">Quadra</text>
+        <text x={782} y={146} textAnchor="middle" fill="#ffffffcc" fontSize="7" fontFamily="'DM Sans',sans-serif">Poliesportiva</text>
       </g>
 
-      {/* Labs e Salas de Aula (item 20) */}
+      {/* Labs e Salas de Aula */}
       <g style={{ cursor: "pointer" }} onMouseEnter={() => setHovered("labSalas")} onMouseLeave={() => setHovered(null)}>
-        <Building x={638} y={235} w={130} h={58} color="#7a6a5a" hoverColor="#9a8a7a" label="" active={activeKey === "labSalas"} rows={2} cols={6} roofH={8} />
-        <text x={703} y={306} textAnchor="middle" fill="#ffffffaa" fontSize="7.5" fontFamily="sans-serif">Labs e Salas de Aula</text>
+        <Building x={634} y={228} w={134} h={60} color="#6a5e50" roofColor="#4a3e33" active={hovered === "labSalas"} rows={2} cols={6} roofH={8} />
+        <text x={701} y={303} textAnchor="middle" fill="#ffffffaa" fontSize="7.5" fontFamily="sans-serif">Labs e Salas de Aula</text>
       </g>
 
-      {/* ===== TOOLTIP DE HOVER ===== */}
-      {activeKey && CAMPUS_LOCATIONS[activeKey] && (() => {
-        const loc = CAMPUS_LOCATIONS[activeKey];
-        const tx = Math.min(Math.max(loc.x - 72, 4), 720);
-        const ty = loc.y - 70;
+      {/* ── Hover tooltip ── */}
+      {hovered && CAMPUS_LOCATIONS[hovered] && (() => {
+        const loc = CAMPUS_LOCATIONS[hovered];
+        const tx = Math.min(Math.max(loc.x - 78, 6), 710);
+        const ty = Math.max(loc.y - 80, 8);
         return (
           <g>
-            <rect x={tx} y={ty} width={154} height={50} rx="5" fill="#000000cc" stroke="#ffffff33" strokeWidth="0.5" />
-            <text x={tx + 77} y={ty + 17} textAnchor="middle" fill="#fff" fontSize="9" fontFamily="sans-serif" fontWeight="bold">{loc.label}</text>
-            <text x={tx + 77} y={ty + 31} textAnchor="middle" fill="#ffffffaa" fontSize="7" fontFamily="sans-serif">{loc.desc.substring(0, 42)}</text>
-            {loc.desc.length > 42 && <text x={tx + 77} y={ty + 42} textAnchor="middle" fill="#ffffffaa" fontSize="7" fontFamily="sans-serif">{loc.desc.substring(42, 80)}{loc.desc.length > 80 ? "…" : ""}</text>}
+            <rect x={tx} y={ty} width={160} height={54} rx="6" fill="#000000dd" stroke="#ffffff22" strokeWidth="0.7" />
+            <text x={tx + 80} y={ty + 18} textAnchor="middle" fill="#fff" fontSize="9.5" fontFamily="'DM Sans',sans-serif" fontWeight="600">{loc.label}</text>
+            <text x={tx + 80} y={ty + 32} textAnchor="middle" fill="#ffffffaa" fontSize="7.5" fontFamily="sans-serif">{loc.desc.substring(0, 40)}</text>
+            {loc.desc.length > 40 && (
+              <text x={tx + 80} y={ty + 44} textAnchor="middle" fill="#ffffffaa" fontSize="7.5" fontFamily="sans-serif">{loc.desc.substring(40, 78)}{loc.desc.length > 78 ? "…" : ""}</text>
+            )}
           </g>
         );
       })()}
 
-      {/* ===== PINS DE EVENTOS ===== */}
+      {/* ── Event pins ── */}
       {events.map(ev => {
         const loc = CAMPUS_LOCATIONS[ev.locationKey];
         if (!loc) return null;
         const isSel = selectedId === ev.id;
-        const py = loc.y - 30;
+        const py = loc.y - 34;
         return (
           <g key={ev.id} style={{ cursor: "pointer" }} onClick={() => onSelect(ev.id)}>
-            <ellipse cx={loc.x} cy={loc.y + 4} rx={9} ry={3} fill="#00000055" />
-            <line x1={loc.x} y1={py + 18} x2={loc.x} y2={loc.y + 3} stroke={ev.color} strokeWidth="2.5" />
-            <circle cx={loc.x} cy={py} r={15} fill={isSel ? "#fff" : ev.color} stroke={isSel ? ev.color : "#fff"} strokeWidth="2" strokeOpacity="0.5" />
-            <text x={loc.x} y={py + 5} textAnchor="middle" fontSize="15">{ev.flyer}</text>
+            <ellipse cx={loc.x} cy={loc.y + 6} rx={10} ry={4} fill="#00000044" />
+            <line x1={loc.x} y1={py + 20} x2={loc.x} y2={loc.y + 5} stroke={ev.color} strokeWidth="2.5" strokeLinecap="round" />
+            {/* pin glow when selected */}
+            {isSel && <circle cx={loc.x} cy={py} r={20} fill={ev.color} opacity="0.22" />}
+            <circle cx={loc.x} cy={py} r={16} fill={isSel ? "#fff" : ev.color} stroke={isSel ? ev.color : "#ffffffbb"} strokeWidth={isSel ? 2.5 : 1.5} />
+            <text x={loc.x} y={py + 6} textAnchor="middle" fontSize="16">{ev.flyer}</text>
             {isSel && (
-              <text x={loc.x} y={py - 20} textAnchor="middle" fill="#fff" fontSize="8" fontFamily="sans-serif" fontWeight="bold">{ev.title}</text>
+              <g>
+                <rect x={loc.x - 42} y={py - 34} width={84} height={20} rx="4" fill="#000000cc" />
+                <text x={loc.x} y={py - 20} textAnchor="middle" fill="#fff" fontSize="8.5" fontFamily="'DM Sans',sans-serif" fontWeight="600">{ev.title}</text>
+              </g>
             )}
           </g>
         );
       })}
 
-      {/* Marca d'água */}
-      <text x="820" y="515" textAnchor="end" fill="#ffffff18" fontSize="8" fontFamily="sans-serif">Campus Unisagrado · Bauru/SP</text>
+      {/* watermark */}
+      <text x="816" y="516" textAnchor="end" fill="#ffffff14" fontSize="8" fontFamily="sans-serif">Campus Unisagrado · Bauru/SP</text>
     </svg>
   );
 }
 
+// ─── Main App ─────────────────────────────────────────────────────────────────
 export default function App() {
   const [view, setView] = useState("mural");
   const [selected, setSelected] = useState(null);
@@ -397,24 +438,41 @@ export default function App() {
 
   const selectedEvent = selected ? EVENTS.find(e => e.id === selected) : null;
 
-  const S = { minHeight: "100vh", background: "#0F0F13", color: "#F1EFF8", fontFamily: "'Sora','DM Sans',sans-serif" };
+  const css = `
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+  `;
 
   return (
-    <div style={S}>
-      <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <div style={{ minHeight: "100vh", background: "#0D0D12", color: "#F0EEF8", fontFamily: "'DM Sans', sans-serif" }}>
+      <style>{css}</style>
 
-      {/* HEADER */}
-      <header style={{ borderBottom: "1px solid #1E1E28", padding: "0 1.5rem", display: "flex", alignItems: "center", justifyContent: "space-between", height: 60, position: "sticky", top: 0, zIndex: 50, background: "#0F0F13" }}>
+      {/* ── HEADER ── */}
+      <header style={{
+        borderBottom: "1px solid #1C1C25", padding: "0 1.5rem",
+        display: "flex", alignItems: "center", justifyContent: "space-between",
+        height: 58, position: "sticky", top: 0, zIndex: 50, background: "#0D0D12",
+        backdropFilter: "blur(8px)",
+      }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <div style={{ width: 34, height: 34, borderRadius: 8, background: "linear-gradient(135deg,#C8102E,#8B0000)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18 }}>🎓</div>
+          <div style={{ width: 34, height: 34, borderRadius: 9, background: "linear-gradient(135deg,#C8102E,#7a0010)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 17 }}>🎓</div>
           <div>
-            <span style={{ fontWeight: 700, fontSize: 17 }}>Campus<span style={{ color: "#E63946" }}>Vivo</span></span>
-            <span style={{ fontSize: 10, color: "#555", display: "block", lineHeight: 1 }}>Unisagrado · Bauru</span>
+            <span style={{ fontWeight: 700, fontSize: 16, letterSpacing: "-0.3px" }}>
+              Campus<span style={{ color: "#E63946" }}>ON</span>
+            </span>
+            <span style={{ fontSize: 10, color: "#444", display: "block", lineHeight: 1.1 }}>Unisagrado · Bauru</span>
           </div>
         </div>
         <nav style={{ display: "flex", gap: 4 }}>
           {[{ id: "mural", label: "Mural", icon: "📋" }, { id: "mapa", label: "Mapa", icon: "🗺️" }].map(tab => (
-            <button key={tab.id} onClick={() => setView(tab.id)} style={{ padding: "6px 14px", borderRadius: 8, border: "none", cursor: "pointer", fontSize: 13, fontWeight: 500, fontFamily: "inherit", background: view === tab.id ? "#2a1015" : "transparent", color: view === tab.id ? "#E63946" : "#888" }}>
+            <button key={tab.id} onClick={() => setView(tab.id)} style={{
+              padding: "6px 14px", borderRadius: 8, border: "none", cursor: "pointer",
+              fontSize: 13, fontWeight: 500, fontFamily: "inherit",
+              background: view === tab.id ? "#200b10" : "transparent",
+              color: view === tab.id ? "#E63946" : "#666",
+              transition: "all 0.15s",
+            }}>
               {tab.icon} {tab.label}
             </button>
           ))}
@@ -422,27 +480,33 @@ export default function App() {
         <div>
           {user ? (
             <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-              <div style={{ width: 32, height: 32, borderRadius: "50%", background: "linear-gradient(135deg,#C8102E,#8B0000)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, fontWeight: 700 }}>{user.avatar}</div>
+              <div style={{ width: 30, height: 30, borderRadius: "50%", background: "linear-gradient(135deg,#C8102E,#7a0010)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, fontWeight: 700 }}>{user.avatar}</div>
               <button onClick={() => { setUser(null); setUserReactions({}); }} style={{ fontSize: 11, color: "#555", background: "none", border: "none", cursor: "pointer", fontFamily: "inherit" }}>sair</button>
             </div>
           ) : (
-            <button onClick={() => setLoginModal(true)} style={{ padding: "7px 16px", borderRadius: 8, border: "1px solid #2E1820", background: "#1a0a0e", color: "#E63946", fontSize: 13, fontWeight: 500, cursor: "pointer", fontFamily: "inherit" }}>Entrar</button>
+            <button onClick={() => setLoginModal(true)} style={{ padding: "7px 16px", borderRadius: 8, border: "1px solid #2a1018", background: "#18080e", color: "#E63946", fontSize: 13, fontWeight: 500, cursor: "pointer", fontFamily: "inherit" }}>Entrar</button>
           )}
         </div>
       </header>
 
-      {/* ===== MURAL ===== */}
+      {/* ══════════ MURAL ══════════ */}
       {view === "mural" && (
         <main style={{ maxWidth: 1100, margin: "0 auto", padding: "2rem 1.5rem" }}>
           <div style={{ marginBottom: "1.5rem" }}>
-            <h1 style={{ fontSize: "clamp(22px,4vw,32px)", fontWeight: 700, margin: "0 0 4px", letterSpacing: "-0.5px" }}>
+            <h1 style={{ fontSize: "clamp(20px,4vw,30px)", fontWeight: 700, margin: "0 0 4px", letterSpacing: "-0.5px" }}>
               Eventos na <span style={{ color: "#E63946" }}>Unisagrado</span>
             </h1>
-            <p style={{ color: "#666", margin: 0, fontSize: 14 }}>Fique por dentro do que vai rolar no campus</p>
+            <p style={{ color: "#555", margin: 0, fontSize: 13 }}>Fique por dentro do que vai rolar no campus</p>
           </div>
           <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: "1.5rem" }}>
             {categories.map(cat => (
-              <button key={cat} onClick={() => setFilterCat(cat)} style={{ padding: "6px 14px", borderRadius: 20, border: "1px solid", borderColor: filterCat === cat ? "#C8102E" : "#1E1E28", background: filterCat === cat ? "#2a1015" : "transparent", color: filterCat === cat ? "#E63946" : "#888", fontSize: 12, fontWeight: 500, cursor: "pointer", fontFamily: "inherit" }}>
+              <button key={cat} onClick={() => setFilterCat(cat)} style={{
+                padding: "6px 14px", borderRadius: 20, border: "1px solid",
+                borderColor: filterCat === cat ? "#C8102E" : "#1E1E28",
+                background: filterCat === cat ? "#200b10" : "transparent",
+                color: filterCat === cat ? "#E63946" : "#777",
+                fontSize: 12, fontWeight: 500, cursor: "pointer", fontFamily: "inherit",
+              }}>
                 {cat === "Todos" ? "✦ Todos" : cat}
               </button>
             ))}
@@ -452,27 +516,31 @@ export default function App() {
               const cat = CATEGORY_COLORS[ev.category];
               return (
                 <div key={ev.id} onClick={() => setSelected(ev.id)}
-                  style={{ background: "#15141C", borderRadius: 14, border: "1px solid #1E1E28", overflow: "hidden", cursor: "pointer", transition: "all 0.2s" }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = ev.color + "66"; e.currentTarget.style.transform = "translateY(-2px)"; }}
-                  onMouseLeave={e => { e.currentTarget.style.borderColor = "#1E1E28"; e.currentTarget.style.transform = ""; }}>
-                  <div style={{ height: 100, background: `linear-gradient(135deg,${ev.color}22,${ev.color}08)`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 48, borderBottom: "1px solid #1E1E28", position: "relative" }}>
+                  style={{ background: "#13121A", borderRadius: 14, border: "1px solid #1C1C25", overflow: "hidden", cursor: "pointer", transition: "all 0.2s" }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = ev.color + "55"; e.currentTarget.style.transform = "translateY(-2px)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = "#1C1C25"; e.currentTarget.style.transform = ""; }}>
+                  <div style={{ height: 90, background: `linear-gradient(135deg,${ev.color}22,${ev.color}06)`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 44, borderBottom: "1px solid #1C1C25", position: "relative" }}>
                     <span style={{ position: "absolute", top: 10, left: 12, background: cat.bg, color: cat.text, fontSize: 10, fontWeight: 600, padding: "3px 9px", borderRadius: 20 }}>{ev.category}</span>
                     {ev.flyer}
                   </div>
                   <div style={{ padding: "1rem 1.1rem 0.8rem" }}>
-                    <h3 style={{ margin: "0 0 4px", fontSize: 15, fontWeight: 600 }}>{ev.title}</h3>
-                    <p style={{ margin: "0 0 6px", fontSize: 11, color: "#666" }}>📍 {ev.block}</p>
-                    <p style={{ margin: "0 0 10px", fontSize: 12.5, color: "#AAA", lineHeight: 1.5, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{ev.description}</p>
+                    <h3 style={{ margin: "0 0 3px", fontSize: 14.5, fontWeight: 600 }}>{ev.title}</h3>
+                    <p style={{ margin: "0 0 6px", fontSize: 11, color: "#555" }}>📍 {ev.block}</p>
+                    <p style={{ margin: "0 0 10px", fontSize: 12, color: "#999", lineHeight: 1.5, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{ev.description}</p>
                     <div style={{ display: "flex", gap: 6, marginBottom: 10 }}>
-                      <span style={{ fontSize: 11, color: "#888", background: "#1E1E28", padding: "3px 8px", borderRadius: 6 }}>📅 {ev.date}</span>
-                      <span style={{ fontSize: 11, color: "#888", background: "#1E1E28", padding: "3px 8px", borderRadius: 6 }}>🕐 {ev.time}</span>
+                      <span style={{ fontSize: 11, color: "#777", background: "#1C1C25", padding: "3px 8px", borderRadius: 6 }}>📅 {ev.date}</span>
+                      <span style={{ fontSize: 11, color: "#777", background: "#1C1C25", padding: "3px 8px", borderRadius: 6 }}>🕐 {ev.time}</span>
                     </div>
-                    <div style={{ display: "flex", gap: 6, paddingTop: 10, borderTop: "1px solid #1E1E28" }} onClick={e => e.stopPropagation()}>
+                    <div style={{ display: "flex", gap: 6, paddingTop: 10, borderTop: "1px solid #1C1C25" }} onClick={e => e.stopPropagation()}>
                       {REACTION_EMOJIS.map(emoji => {
                         const reacted = userReactions[`${ev.id}-${emoji}`];
                         return (
-                          <button key={emoji} onClick={() => handleReact(ev.id, emoji)}
-                            style={{ display: "flex", alignItems: "center", gap: 4, padding: "4px 9px", borderRadius: 20, border: `1px solid ${reacted ? ev.color + "99" : "#1E1E28"}`, background: reacted ? ev.color + "22" : "transparent", cursor: "pointer", fontSize: 12, fontFamily: "inherit", color: reacted ? "#FFF" : "#888", transition: "all 0.15s" }}>
+                          <button key={emoji} onClick={() => handleReact(ev.id, emoji)} style={{
+                            display: "flex", alignItems: "center", gap: 4, padding: "4px 8px",
+                            borderRadius: 20, border: `1px solid ${reacted ? ev.color + "88" : "#1C1C25"}`,
+                            background: reacted ? ev.color + "22" : "transparent", cursor: "pointer",
+                            fontSize: 12, fontFamily: "inherit", color: reacted ? "#FFF" : "#777", transition: "all 0.15s",
+                          }}>
                             {emoji} <span style={{ fontSize: 11 }}>{reactions[ev.id][emoji] || 0}</span>
                           </button>
                         );
@@ -480,124 +548,176 @@ export default function App() {
                     </div>
                   </div>
                 </div>
-                
               );
             })}
           </div>
         </main>
       )}
 
-      {/* ===== MAPA ===== */}
+      {/* ══════════ MAPA ══════════ */}
       {view === "mapa" && (
-        <main style={{ maxWidth: 1200, margin: "0 auto", padding: "2rem 1.5rem" }}>
+        <main style={{ maxWidth: 1240, margin: "0 auto", padding: "1.5rem 1.5rem" }}>
           <div style={{ marginBottom: "1rem" }}>
-            <h2 style={{ margin: "0 0 4px", fontSize: 22, fontWeight: 700 }}>Mapa do Campus</h2>
-            <p style={{ color: "#666", margin: 0, fontSize: 14 }}>Clique nos pins coloridos para ver os detalhes</p>
-          </div>
-          <div
-  style={{
-    display: "grid",
-    gridTemplateColumns:
-      window.innerWidth < 768 ? "1fr" : "1fr 270px",
-    gap: "1.5rem",
-    alignItems: "start",
-  }}
->
-            <div style={{ borderRadius: 14, overflow: "hidden", border: "1px solid #1E1E28" }}>
-              <CampusMap events={EVENTS} selectedId={selected} onSelect={id => setSelected(selected === id ? null : id)} />
-            </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-              <p style={{ margin: "0 0 4px", fontSize: 11, color: "#555", textTransform: "uppercase", letterSpacing: "0.5px" }}>Eventos no campus</p>
-              {EVENTS.map(ev => (
-                <div key={ev.id} onClick={() => setSelected(selected === ev.id ? null : ev.id)}
-                  style={{ background: selected === ev.id ? "#1a1020" : "#15141C", borderRadius: 10, border: `1px solid ${selected === ev.id ? ev.color + "66" : "#1E1E28"}`, padding: "10px 12px", cursor: "pointer", transition: "all 0.15s" }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                    <div style={{ width: 28, height: 28, borderRadius: "50%", background: ev.color + "33", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16 }}>{ev.flyer}</div>
-                    <div>
-                      <p style={{ margin: 0, fontSize: 13, fontWeight: 600 }}>{ev.title}</p>
-                      <p style={{ margin: 0, fontSize: 10, color: "#666" }}>{ev.date} · {CAMPUS_LOCATIONS[ev.locationKey]?.label}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <h2 style={{ margin: "0 0 3px", fontSize: 20, fontWeight: 700 }}>Mapa do Campus</h2>
+            <p style={{ color: "#555", margin: 0, fontSize: 13 }}>Clique nos pins coloridos para ver os detalhes</p>
           </div>
 
-          {selectedEvent && (
-            <div style={{ marginTop: "1.5rem", background: "#15141C", borderRadius: 14, border: `1px solid ${selectedEvent.color}44`, padding: "1.4rem" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 12 }}>
-                <span style={{ fontSize: 38 }}>{selectedEvent.flyer}</span>
-                <div>
-                  <span style={{ background: CATEGORY_COLORS[selectedEvent.category].bg, color: CATEGORY_COLORS[selectedEvent.category].text, fontSize: 11, padding: "2px 10px", borderRadius: 20, fontWeight: 600 }}>{selectedEvent.category}</span>
-                  <h3 style={{ margin: "4px 0 2px", fontSize: 18, fontWeight: 700 }}>{selectedEvent.title}</h3>
-                  <p style={{ margin: 0, fontSize: 13, color: "#888" }}>📍 {selectedEvent.block} · 📅 {selectedEvent.date} · 🕐 {selectedEvent.time}</p>
-                </div>
-              </div>
-              <p style={{ fontSize: 14, color: "#AAA", lineHeight: 1.6, marginBottom: 12 }}>{selectedEvent.description}</p>
-              <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 14 }}>
-                {selectedEvent.involved.map((p, i) => <span key={i} style={{ fontSize: 11, color: "#888", background: "#1E1E28", padding: "3px 10px", borderRadius: 20 }}>👤 {p}</span>)}
-              </div>
-              <div style={{ display: "flex", gap: 8 }}>
-                {REACTION_EMOJIS.map(emoji => {
-                  const reacted = userReactions[`${selectedEvent.id}-${emoji}`];
-                  return (
-                    <button key={emoji} onClick={() => handleReact(selectedEvent.id, emoji)}
-                      style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 4, padding: "8px 6px", borderRadius: 10, border: `1px solid ${reacted ? selectedEvent.color : "#1E1E28"}`, background: reacted ? selectedEvent.color + "22" : "#0A0A10", cursor: "pointer", fontFamily: "inherit" }}>
-                      <span style={{ fontSize: 20 }}>{emoji}</span>
-                      <span style={{ fontSize: 13, fontWeight: 600, color: reacted ? "#FFF" : "#888" }}>{reactions[selectedEvent.id][emoji] || 0}</span>
-                    </button>
-                  );
-                })}
-              </div>
-              {!user && <p style={{ fontSize: 12, color: "#555", marginTop: 10, textAlign: "center" }}>
-                <span onClick={() => setLoginModal(true)} style={{ color: "#E63946", cursor: "pointer", textDecoration: "underline" }}>Entre</span> para reagir
-              </p>}
+          {/* Map + Sidebar grid */}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 280px", gap: "1.5rem", alignItems: "start" }}>
+
+            {/* MAP */}
+            <div style={{ borderRadius: 14, overflow: "hidden", border: "1px solid #1C1C25" }}>
+              <CampusMap events={EVENTS} selectedId={selected} onSelect={id => setSelected(selected === id ? null : id)} />
             </div>
-          )}
+
+            {/* SIDEBAR — event list + selected detail below */}
+            <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+              <p style={{ margin: "0 0 8px", fontSize: 10.5, color: "#444", textTransform: "uppercase", letterSpacing: "0.8px", fontWeight: 600 }}>Eventos no Campus</p>
+
+              {/* Event list */}
+              <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                {EVENTS.map(ev => (
+                  <div key={ev.id} onClick={() => setSelected(selected === ev.id ? null : ev.id)}
+                    style={{
+                      background: selected === ev.id ? "#1a0c12" : "#13121A",
+                      borderRadius: 10, border: `1px solid ${selected === ev.id ? ev.color + "55" : "#1C1C25"}`,
+                      padding: "9px 11px", cursor: "pointer", transition: "all 0.15s",
+                    }}
+                    onMouseEnter={e => { if (selected !== ev.id) e.currentTarget.style.borderColor = "#2a2a35"; }}
+                    onMouseLeave={e => { if (selected !== ev.id) e.currentTarget.style.borderColor = "#1C1C25"; }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                      <div style={{ width: 30, height: 30, borderRadius: "50%", background: ev.color + "28", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 15, flexShrink: 0 }}>{ev.flyer}</div>
+                      <div style={{ minWidth: 0 }}>
+                        <p style={{ margin: 0, fontSize: 12.5, fontWeight: 600, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{ev.title}</p>
+                        <p style={{ margin: 0, fontSize: 10, color: "#555" }}>{ev.date} · {CAMPUS_LOCATIONS[ev.locationKey]?.label}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* ── Event detail (inline below list) ── */}
+              {selectedEvent && (
+                <div style={{
+                  marginTop: 12,
+                  background: "#13121A",
+                  borderRadius: 12,
+                  border: `1px solid ${selectedEvent.color}44`,
+                  overflow: "hidden",
+                  animation: "fadeSlide 0.2s ease",
+                }}>
+                  <style>{`@keyframes fadeSlide { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }`}</style>
+
+                  {/* color bar */}
+                  <div style={{ height: 4, background: selectedEvent.color }} />
+
+                  <div style={{ padding: "12px 14px" }}>
+                    {/* header */}
+                    <div style={{ display: "flex", alignItems: "flex-start", gap: 10, marginBottom: 10 }}>
+                      <span style={{ fontSize: 30, flexShrink: 0 }}>{selectedEvent.flyer}</span>
+                      <div style={{ minWidth: 0 }}>
+                        <span style={{
+                          background: CATEGORY_COLORS[selectedEvent.category].bg,
+                          color: CATEGORY_COLORS[selectedEvent.category].text,
+                          fontSize: 10, padding: "2px 8px", borderRadius: 20, fontWeight: 600,
+                        }}>{selectedEvent.category}</span>
+                        <p style={{ margin: "4px 0 2px", fontSize: 14, fontWeight: 700 }}>{selectedEvent.title}</p>
+                        <p style={{ margin: 0, fontSize: 10.5, color: "#666" }}>📍 {selectedEvent.block}</p>
+                      </div>
+                    </div>
+
+                    {/* date/time */}
+                    <div style={{ display: "flex", gap: 6, marginBottom: 10 }}>
+                      <span style={{ fontSize: 10.5, color: "#888", background: "#1C1C25", padding: "3px 8px", borderRadius: 6 }}>📅 {selectedEvent.date}</span>
+                      <span style={{ fontSize: 10.5, color: "#888", background: "#1C1C25", padding: "3px 8px", borderRadius: 6 }}>🕐 {selectedEvent.time}</span>
+                    </div>
+
+                    {/* description */}
+                    <p style={{ fontSize: 12, color: "#AAA", lineHeight: 1.6, marginBottom: 10 }}>{selectedEvent.description}</p>
+
+                    {/* involved */}
+                    <div style={{ display: "flex", gap: 5, flexWrap: "wrap", marginBottom: 12 }}>
+                      {selectedEvent.involved.map((p, i) => (
+                        <span key={i} style={{ fontSize: 10.5, color: "#777", background: "#1C1C25", padding: "3px 9px", borderRadius: 20 }}>👤 {p}</span>
+                      ))}
+                    </div>
+
+                    {/* reactions */}
+                    <div style={{ display: "flex", gap: 6, paddingTop: 10, borderTop: "1px solid #1C1C25" }}>
+                      {REACTION_EMOJIS.map(emoji => {
+                        const reacted = userReactions[`${selectedEvent.id}-${emoji}`];
+                        return (
+                          <button key={emoji} onClick={() => handleReact(selectedEvent.id, emoji)} style={{
+                            flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 3,
+                            padding: "7px 4px", borderRadius: 9,
+                            border: `1px solid ${reacted ? selectedEvent.color : "#1C1C25"}`,
+                            background: reacted ? selectedEvent.color + "22" : "#0c0c14",
+                            cursor: "pointer", fontFamily: "inherit",
+                          }}>
+                            <span style={{ fontSize: 17 }}>{emoji}</span>
+                            <span style={{ fontSize: 11, fontWeight: 600, color: reacted ? "#FFF" : "#666" }}>{reactions[selectedEvent.id][emoji] || 0}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                    {!user && (
+                      <p style={{ fontSize: 11, color: "#444", textAlign: "center", marginTop: 8, marginBottom: 0 }}>
+                        <span onClick={() => setLoginModal(true)} style={{ color: "#E63946", cursor: "pointer", textDecoration: "underline" }}>Entre</span> para reagir
+                      </p>
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
         </main>
       )}
 
-      {/* MODAL DETALHE */}
+      {/* ══════════ MURAL MODAL ══════════ */}
       {selectedEvent && view === "mural" && (
         <div onClick={() => setSelected(null)} style={{ position: "fixed", inset: 0, background: "#000000AA", zIndex: 100, display: "flex", alignItems: "center", justifyContent: "center", padding: "1rem" }}>
-          <div onClick={e => e.stopPropagation()} style={{ background: "#15141C", borderRadius: 18, border: `1px solid ${selectedEvent.color}44`, maxWidth: 520, width: "100%", maxHeight: "90vh", overflowY: "auto" }}>
-            <div style={{ height: 120, background: `linear-gradient(135deg,${selectedEvent.color}33,${selectedEvent.color}08)`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 58, position: "relative" }}>
-              <button onClick={() => setSelected(null)} style={{ position: "absolute", top: 12, right: 12, background: "#00000055", border: "none", color: "#FFF", borderRadius: "50%", width: 30, height: 30, cursor: "pointer", fontSize: 16, fontFamily: "inherit" }}>✕</button>
+          <div onClick={e => e.stopPropagation()} style={{ background: "#13121A", borderRadius: 18, border: `1px solid ${selectedEvent.color}44`, maxWidth: 520, width: "100%", maxHeight: "90vh", overflowY: "auto" }}>
+            <div style={{ height: 110, background: `linear-gradient(135deg,${selectedEvent.color}33,${selectedEvent.color}08)`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 54, position: "relative" }}>
+              <button onClick={() => setSelected(null)} style={{ position: "absolute", top: 12, right: 12, background: "#00000055", border: "none", color: "#FFF", borderRadius: "50%", width: 30, height: 30, cursor: "pointer", fontSize: 15, fontFamily: "inherit", display: "flex", alignItems: "center", justifyContent: "center" }}>✕</button>
               {selectedEvent.flyer}
             </div>
-            <div style={{ padding: "1.4rem" }}>
+            <div style={{ padding: "1.3rem" }}>
               <span style={{ background: CATEGORY_COLORS[selectedEvent.category].bg, color: CATEGORY_COLORS[selectedEvent.category].text, fontSize: 11, padding: "3px 10px", borderRadius: 20, fontWeight: 600 }}>{selectedEvent.category}</span>
-              <h2 style={{ margin: "8px 0 4px", fontSize: 20, fontWeight: 700 }}>{selectedEvent.title}</h2>
-              <p style={{ margin: "0 0 12px", fontSize: 13, color: "#777" }}>📍 {selectedEvent.block}</p>
+              <h2 style={{ margin: "8px 0 4px", fontSize: 19, fontWeight: 700 }}>{selectedEvent.title}</h2>
+              <p style={{ margin: "0 0 12px", fontSize: 12.5, color: "#666" }}>📍 {selectedEvent.block}</p>
               <div style={{ display: "flex", gap: 8, marginBottom: 14 }}>
-                <span style={{ fontSize: 12, color: "#AAA", background: "#1E1E28", padding: "5px 12px", borderRadius: 8 }}>📅 {selectedEvent.date}</span>
-                <span style={{ fontSize: 12, color: "#AAA", background: "#1E1E28", padding: "5px 12px", borderRadius: 8 }}>🕐 {selectedEvent.time}</span>
+                <span style={{ fontSize: 12, color: "#AAA", background: "#1C1C25", padding: "5px 12px", borderRadius: 8 }}>📅 {selectedEvent.date}</span>
+                <span style={{ fontSize: 12, color: "#AAA", background: "#1C1C25", padding: "5px 12px", borderRadius: 8 }}>🕐 {selectedEvent.time}</span>
               </div>
-              <p style={{ fontSize: 14, color: "#BBB", lineHeight: 1.7, marginBottom: 14 }}>{selectedEvent.description}</p>
-              <p style={{ fontSize: 11, color: "#555", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: 8 }}>Envolvidos</p>
+              <p style={{ fontSize: 13.5, color: "#BBB", lineHeight: 1.7, marginBottom: 14 }}>{selectedEvent.description}</p>
+              <p style={{ fontSize: 10.5, color: "#444", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.6px", marginBottom: 8 }}>Envolvidos</p>
               <div style={{ display: "flex", flexDirection: "column", gap: 6, marginBottom: 16 }}>
                 {selectedEvent.involved.map((p, i) => (
                   <div key={i} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13, color: "#AAA" }}>
-                    <div style={{ width: 28, height: 28, borderRadius: "50%", background: selectedEvent.color + "33", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, color: selectedEvent.color, fontWeight: 700 }}>{p[0]}</div>
+                    <div style={{ width: 26, height: 26, borderRadius: "50%", background: selectedEvent.color + "33", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 10.5, color: selectedEvent.color, fontWeight: 700 }}>{p[0]}</div>
                     {p}
                   </div>
                 ))}
               </div>
-              <div style={{ paddingTop: 14, borderTop: "1px solid #1E1E28" }}>
-                <p style={{ fontSize: 11, color: "#555", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: 10 }}>{user ? "Reaja ao evento" : "Faça login para reagir"}</p>
+              <div style={{ paddingTop: 14, borderTop: "1px solid #1C1C25" }}>
                 <div style={{ display: "flex", gap: 8 }}>
                   {REACTION_EMOJIS.map(emoji => {
                     const reacted = userReactions[`${selectedEvent.id}-${emoji}`];
                     return (
-                      <button key={emoji} onClick={() => handleReact(selectedEvent.id, emoji)}
-                        style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 4, padding: "10px 6px", borderRadius: 10, border: `1px solid ${reacted ? selectedEvent.color : "#1E1E28"}`, background: reacted ? selectedEvent.color + "22" : "#0A0A10", cursor: "pointer", fontFamily: "inherit" }}>
+                      <button key={emoji} onClick={() => handleReact(selectedEvent.id, emoji)} style={{
+                        flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 4,
+                        padding: "10px 6px", borderRadius: 10,
+                        border: `1px solid ${reacted ? selectedEvent.color : "#1C1C25"}`,
+                        background: reacted ? selectedEvent.color + "22" : "#0A0A10",
+                        cursor: "pointer", fontFamily: "inherit",
+                      }}>
                         <span style={{ fontSize: 22 }}>{emoji}</span>
-                        <span style={{ fontSize: 13, fontWeight: 600, color: reacted ? "#FFF" : "#888" }}>{reactions[selectedEvent.id][emoji] || 0}</span>
+                        <span style={{ fontSize: 13, fontWeight: 600, color: reacted ? "#FFF" : "#777" }}>{reactions[selectedEvent.id][emoji] || 0}</span>
                       </button>
                     );
                   })}
                 </div>
-                {!user && <p style={{ fontSize: 12, color: "#555", textAlign: "center", marginTop: 10 }}>
+                {!user && <p style={{ fontSize: 12, color: "#444", textAlign: "center", marginTop: 10 }}>
                   <span onClick={() => { setSelected(null); setLoginModal(true); }} style={{ color: "#E63946", cursor: "pointer", textDecoration: "underline" }}>Entre agora</span> para reagir
                 </p>}
               </div>
@@ -606,27 +726,28 @@ export default function App() {
         </div>
       )}
 
-      {/* LOGIN MODAL */}
+      {/* ══════════ LOGIN ══════════ */}
       {loginModal && (
         <div onClick={() => setLoginModal(false)} style={{ position: "fixed", inset: 0, background: "#000000AA", zIndex: 200, display: "flex", alignItems: "center", justifyContent: "center", padding: "1rem" }}>
-          <div onClick={e => e.stopPropagation()} style={{ background: "#15141C", borderRadius: 18, border: "1px solid #2E1820", maxWidth: 380, width: "100%", padding: "2rem" }}>
+          <div onClick={e => e.stopPropagation()} style={{ background: "#13121A", borderRadius: 18, border: "1px solid #2a1018", maxWidth: 380, width: "100%", padding: "2rem" }}>
             <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
-              <div style={{ fontSize: 38, marginBottom: 8 }}>🎓</div>
-              <h2 style={{ margin: "0 0 6px", fontSize: 20, fontWeight: 700 }}>Entrar no CampusVivo</h2>
-              <p style={{ color: "#666", fontSize: 13, margin: 0 }}>Use seu e-mail @unisagrado.edu.br</p>
+              <div style={{ fontSize: 36, marginBottom: 8 }}>🎓</div>
+              <h2 style={{ margin: "0 0 6px", fontSize: 19, fontWeight: 700 }}>Entrar no CampusON</h2>
+              <p style={{ color: "#555", fontSize: 13, margin: 0 }}>Use seu e-mail @unisagrado.edu.br</p>
             </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-              <input placeholder="Seu nome" value={loginForm.name} onChange={e => setLoginForm(p => ({ ...p, name: e.target.value }))} style={{ padding: "11px 14px", borderRadius: 10, border: "1px solid #2E1828", background: "#0A0A10", color: "#F1EFF8", fontSize: 14, fontFamily: "inherit", outline: "none" }} />
-              <input placeholder="email@unisagrado.edu.br" value={loginForm.email} onChange={e => setLoginForm(p => ({ ...p, email: e.target.value }))} style={{ padding: "11px 14px", borderRadius: 10, border: "1px solid #2E1828", background: "#0A0A10", color: "#F1EFF8", fontSize: 14, fontFamily: "inherit", outline: "none" }} />
-              <button onClick={handleLogin} style={{ padding: "12px", borderRadius: 10, border: "none", background: "linear-gradient(135deg,#C8102E,#8B0000)", color: "#FFF", fontSize: 14, fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>Entrar →</button>
-              <button onClick={() => setLoginModal(false)} style={{ padding: "10px", borderRadius: 10, border: "1px solid #2E1828", background: "transparent", color: "#666", fontSize: 13, cursor: "pointer", fontFamily: "inherit" }}>Cancelar</button>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+              <input placeholder="Seu nome" value={loginForm.name} onChange={e => setLoginForm(p => ({ ...p, name: e.target.value }))} style={{ padding: "11px 14px", borderRadius: 10, border: "1px solid #2a1018", background: "#0A0A12", color: "#F1EFF8", fontSize: 14, fontFamily: "inherit", outline: "none" }} />
+              <input placeholder="email@unisagrado.edu.br" value={loginForm.email} onChange={e => setLoginForm(p => ({ ...p, email: e.target.value }))} style={{ padding: "11px 14px", borderRadius: 10, border: "1px solid #2a1018", background: "#0A0A12", color: "#F1EFF8", fontSize: 14, fontFamily: "inherit", outline: "none" }} />
+              <button onClick={handleLogin} style={{ padding: "12px", borderRadius: 10, border: "none", background: "linear-gradient(135deg,#C8102E,#7a0010)", color: "#FFF", fontSize: 14, fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>Entrar →</button>
+              <button onClick={() => setLoginModal(false)} style={{ padding: "10px", borderRadius: 10, border: "1px solid #2a1018", background: "transparent", color: "#555", fontSize: 13, cursor: "pointer", fontFamily: "inherit" }}>Cancelar</button>
             </div>
           </div>
         </div>
       )}
 
+      {/* TOAST */}
       {toast && (
-        <div style={{ position: "fixed", bottom: 24, left: "50%", transform: "translateX(-50%)", background: "#1a0a0e", border: "1px solid #C8102E44", color: "#E63946", padding: "10px 20px", borderRadius: 30, fontSize: 13, fontWeight: 500, zIndex: 300, whiteSpace: "nowrap" }}>
+        <div style={{ position: "fixed", bottom: 22, left: "50%", transform: "translateX(-50%)", background: "#18080e", border: "1px solid #C8102E44", color: "#E63946", padding: "10px 20px", borderRadius: 30, fontSize: 13, fontWeight: 500, zIndex: 300, whiteSpace: "nowrap" }}>
           {toast}
         </div>
       )}
